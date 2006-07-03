@@ -1,0 +1,9 @@
+#
+# producer to apply corrections to photons
+# $Id: $
+#
+module correctedPhotons = PhotonCorrectionProducer {
+  string phoProducer          =     "photons"
+  string phoCollection        =     ""
+  string photonCorrCollection =     ""
+}

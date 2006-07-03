@@ -1,0 +1,11 @@
+#
+# producer for photons
+# $Id: $
+#
+module photons = PhotonProducer {
+  string scProducer   =     "islandSuperClusterProducer"
+  string scCollection =     "islandBarrelSuperClusterCollection"
+  string photonCollection = ""
+}
+
+
