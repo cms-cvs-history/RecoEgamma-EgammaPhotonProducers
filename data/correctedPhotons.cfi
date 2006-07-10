@@ -1,9 +1,9 @@
 #
 # producer to apply corrections to photons
-# $Id: $
+# $Id: correctedPhotons.cfi,v 1.1 2006/07/03 10:23:17 rahatlou Exp $
 #
 module correctedPhotons = PhotonCorrectionProducer {
   string phoProducer          =     "photons"
-  string phoCollection        =     ""
-  string photonCorrCollection =     ""
+  string phoCollection        =     "uncorrectedPhotonCollection"
+  string photonCorrCollection =     "correctedPhotonCollection"
 }

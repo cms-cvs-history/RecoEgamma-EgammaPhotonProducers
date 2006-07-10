@@ -1,0 +1,20 @@
+#
+#  Author: N. Marinelli, U. of Notre Dame, US
+#  $Id: $ 
+#
+
+module simplePhotonAnalyzer = SimplePhotonAnalyzer {
+
+  string outputFile = "/tmp/nancy/photonAnalyzer.root"
+
+  int32 nbinHist = 200.
+  double xMinHist = 0.
+  double xMaxHist = 60.
+
+  string phoProducer = "photons"
+  string corrPhoProducer = "correctedPhotons"
+  string uncorrectedPhotonCollection = "uncorrectedPhotonCollection"
+  string correctedPhotonCollection   = "correctedPhotonCollection"
+
+
+}
