@@ -1,17 +1,23 @@
 #
 #  configuration for producer of converted photons
-#  $Id: $
+#  $Id: convertedPhotons.cfi,v 1.1 2006/07/03 10:04:21 rahatlou Exp $
 #
 module convertedPhotons = ConvertedPhotonProducer {
 
     double NSigmaInside =3
 
-    string bcProducer  =   "islandBasicClusterProducer"
-    string  bcCollection = "islandBarrelBasicClusterCollection"
+    string  bcProducer  =   "islandBasicClusterProducer"
+    string  bcBarrelCollection = "islandBarrelBasicClusterCollection"
+    string  bcEndcapCollection = "islandEndcapBasicClusterCollection"
 
-    string scProducer   =     "islandSuperClusterProducer"
-    string scCollection =     "islandBarrelSuperClusterCollection"
-    string convertedPhotonCollection = "ConvertedPhotonCollection"
+    string scHybridBarrelProducer   =     "correctedHybridSuperClusterProducer"
+    string scHybridBarrelCollection =     ""
+
+    string scIslandEndcapProducer   =     "correctedIslandEndcapSuperClusterProducer"
+    string scIslandEndcapCollection =     ""
+
+    string convertedPhotonCollection = ""
+
 
     string SeedProducer         = "GlobalPixelSeeds"
     double ptCut                = 0.3
