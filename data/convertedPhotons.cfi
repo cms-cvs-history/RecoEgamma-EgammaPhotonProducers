@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: convertedPhotons.cfi,v 1.1 2006/07/03 10:04:21 rahatlou Exp $
+#  $Id: convertedPhotons.cfi,v 1.2 2006/07/26 13:12:52 nancy Exp $
 #
 module convertedPhotons = ConvertedPhotonProducer {
 
@@ -19,7 +19,7 @@ module convertedPhotons = ConvertedPhotonProducer {
     string convertedPhotonCollection = ""
 
 
-    string SeedProducer         = "GlobalPixelSeeds"
+    string SeedProducer         = "globalPixelSeeds"
     double ptCut                = 0.3
     int32  maxCand              = 5
     int32  maxLostHit           = 1
