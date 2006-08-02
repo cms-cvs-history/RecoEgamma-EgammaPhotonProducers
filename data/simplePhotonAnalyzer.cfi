@@ -1,11 +1,11 @@
 #
 #  Author: N. Marinelli, U. of Notre Dame, US
-#  $Id: $ 
+#  $Id: simplePhotonAnalyzer.cfi,v 1.1 2006/07/10 18:00:29 nancy Exp $ 
 #
 
 module simplePhotonAnalyzer = SimplePhotonAnalyzer {
 
-  string outputFile = "/tmp/nancy/photonAnalyzer.root"
+  string outputFile = "photonAnalyzer.root"
 
   int32 nbinHist = 200.
   double xMinHist = 0.
@@ -13,8 +13,8 @@ module simplePhotonAnalyzer = SimplePhotonAnalyzer {
 
   string phoProducer = "photons"
   string corrPhoProducer = "correctedPhotons"
-  string uncorrectedPhotonCollection = "uncorrectedPhotonCollection"
-  string correctedPhotonCollection   = "correctedPhotonCollection"
+  string uncorrectedPhotonCollection = ""
+  string correctedPhotonCollection   = ""
 
 
 }
