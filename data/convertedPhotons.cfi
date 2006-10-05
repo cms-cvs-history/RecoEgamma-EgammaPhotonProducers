@@ -1,10 +1,9 @@
 #
 #  configuration for producer of converted photons
-#  $Id: convertedPhotons.cfi,v 1.3 2006/08/01 14:22:51 kati Exp $
+#  $Id: convertedPhotons.cfi,v 1.4 2006/08/02 14:47:50 rahatlou Exp $
 #
 module convertedPhotons = ConvertedPhotonProducer {
 
-    double NSigmaInside =3
 
     string  bcProducer  =   "islandBasicClusters"
     string  bcBarrelCollection = "islandBarrelBasicClusters"
@@ -17,21 +16,33 @@ module convertedPhotons = ConvertedPhotonProducer {
     string scIslandEndcapCollection =     ""
 
     string convertedPhotonCollection = ""
+    string TrajectoryBuilder    = "CkfTrajectoryBuilder"
 
 
-    string SeedProducer         = "globalPixelSeeds"
-    double ptCut                = 0.3
-    int32  maxCand              = 5
-    int32  maxLostHit           = 1
-    int32  maxConsecLostHit     = 1
-    double lostHitPenalty       = 30.
-    bool   intermediateCleaning = true
-    int32  minimumNumberOfHits  = 3
-    bool   alwaysUseInvalidHits = true
-    bool   seedCleaning         = false
-    string TTRHBuilder          =  "WithTrackAngle"
+#    string SeedProducer         = "globalPixelSeeds"
+#    double ptCut                = 0.3
+#    int32  maxCand              = 5
+#    int32  maxLostHit           = 1
+#    int32  maxConsecLostHit     = 1
+#    double lostHitPenalty       = 30.
+#    bool   intermediateCleaning = true
+#    int32  minimumNumberOfHits  = 3
+#    bool   alwaysUseInvalidHits = true
+#    bool   seedCleaning         = false
+#    string TTRHBuilder          =  "WithTrackAngle"
 
     bool   outInSeedCleaning  = true
     bool   inOutSeedCleaning  = true
     double  smootherChiSquareCut = 100.
+
+    PSet TransientInitialStateEstimatorParameters =
+      {
+         string propagatorAlongTISE    = "PropagatorWithMaterial"
+         string propagatorOppositeTISE = "PropagatorWithMaterialOpposite"
+      }	
+
+  
+
+
+
 }
