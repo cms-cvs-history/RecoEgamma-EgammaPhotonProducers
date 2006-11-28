@@ -1,15 +1,11 @@
 #
 #  Author: N. Marinelli, U. of Notre Dame, US
-#  $Id: simplePhotonAnalyzer.cfi,v 1.2 2006/08/02 14:47:50 rahatlou Exp $ 
+#  $Id: simplePhotonAnalyzer.cfi,v 1.3 2006/11/28 16:15:09 nancy Exp $ 
 #
 
 module simplePhotonAnalyzer = SimplePhotonAnalyzer {
 
   string outputFile = "/tmp/nancy/photonAnalyzer.root"
-
-  int32 nbinHist = 200.
-  double xMinHist = 0.
-  double xMaxHist = 60.
 
   string phoProducer = "photons"
   string corrPhoProducer = "correctedPhotons"
