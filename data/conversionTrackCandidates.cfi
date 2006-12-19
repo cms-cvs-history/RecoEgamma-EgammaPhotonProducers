@@ -1,0 +1,38 @@
+#
+#  configuration for producer of converted photons
+#  $Id: convertedPhotons.cfi,v 1.6 2006/11/14 11:44:53 nancy Exp $
+#
+module conversionTrackCandidates = ConversionTrackCandidateProducer {
+
+
+    string  bcProducer  =   "islandBasicClusters"
+    string  bcBarrelCollection = "islandBarrelBasicClusters"
+    string  bcEndcapCollection = "islandEndcapBasicClusters"
+
+    string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
+    string scHybridBarrelCollection =     ""
+
+    string scIslandEndcapProducer   =     "correctedIslandEndcapSuperClusters"
+    string scIslandEndcapCollection =     ""
+
+
+    string outInTrackCandidateCollection = "outInTracksFromConversions" 
+    string inOutTrackCandidateCollection = "inOutTracksFromConversions" 	
+
+    string TrajectoryBuilder    = 	"TrajectoryBuilderForConversions"
+
+    bool   outInSeedCleaning  = true
+    bool   inOutSeedCleaning  = true
+    double  smootherChiSquareCut = 100.
+
+    PSet TransientInitialStateEstimatorParameters =
+      {
+         string propagatorAlongTISE    = "PropagatorWithMaterial"
+         string propagatorOppositeTISE = "PropagatorWithMaterialOpposite"
+      }	
+
+  
+
+
+
+}

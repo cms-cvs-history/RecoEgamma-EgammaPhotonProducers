@@ -1,0 +1,15 @@
+#
+# sequence to recontruct converted photons from clusters in ECAL and tracks
+# 
+#
+# Conversion Track candidate producer 
+include "RecoEgamma/EgammaPhotonProducers/data/conversionTrackCandidates.cfi"
+# converted photon producer
+include "RecoEgamma/EgammaPhotonProducers/data/convertedPhotons.cfi"
+
+
+
+
+sequence convertedPhotonSequence = {conversionTrackCandidates,ckfOutInTracksFromConversions, ckfInOutTracksFromConversions, convertedPhotons} 
+
+
