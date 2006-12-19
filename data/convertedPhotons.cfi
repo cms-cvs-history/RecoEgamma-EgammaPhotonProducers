@@ -12,22 +12,17 @@ module convertedPhotons = ConvertedPhotonProducer {
     string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
     string scHybridBarrelCollection =     ""
 
-    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
+    string scIslandEndcapProducer   =     "correctedIslandEndcapSuperClusters"
     string scIslandEndcapCollection =     ""
 
-    string convertedPhotonCollection = ""
-    string TrajectoryBuilder    = 	"TrajectoryBuilderForConversions"
+#    string convertedPhotonCollection = "convertedPhotons"
+    string convertedPhotonCollection = ""	
 
-    bool   outInSeedCleaning  = true
-    bool   inOutSeedCleaning  = true
-    double  smootherChiSquareCut = 100.
-
-    PSet TransientInitialStateEstimatorParameters =
-      {
-         string propagatorAlongTISE    = "PropagatorWithMaterial"
-         string propagatorOppositeTISE = "PropagatorWithMaterialOpposite"
-      }	
-
+   string conversionOITrackProducer = "ckfOutInTracksFromConversions"
+   string outInTrackCollection    = ""
+ 
+   string conversionIOTrackProducer = "ckfInOutTracksFromConversions"	
+   string inOutTrackCollection    = ""
   
 
 
