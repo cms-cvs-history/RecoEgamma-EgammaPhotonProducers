@@ -1,0 +1,12 @@
+#
+#
+# Conversion Track candidate producer 
+include "RecoEgamma/EgammaPhotonProducers/data/conversionTrackCandidates.cfi"
+# Conversion Track producer  ( final fit )
+include "RecoEgamma/EgammaPhotonProducers/data/conversionTracks.cfi"
+
+
+
+sequence ckfTracksFromConversions = {conversionTrackCandidates,ckfOutInTracksFromConversions, ckfInOutTracksFromConversions}
+
+

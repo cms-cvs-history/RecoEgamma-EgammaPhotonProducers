@@ -1,0 +1,102 @@
+############## Configure the fitters for  Out In Tracking 
+#TrackProducers
+module ckfOutInTracksFromConversions = TrackProducer
+{
+  string Fitter = "KFFittingSmootherForOutIn"	
+  string Propagator = "PropagatorWithMaterial"
+  string producer = "conversionTrackCandidates"
+  string src = "outInTracksFromConversions"
+  string TTRHBuilder       =   "WithTrackAngle"
+  bool TrajectoryInEvent = false
+}
+
+
+es_module Chi2ForOutIn = Chi2MeasurementEstimatorESProducer
+  {
+    string ComponentName = "Chi2ForOutIn"
+    double MaxChi2 = 100.
+    double nSigma = 3.
+  }
+
+
+
+
+#KFTrajectoryFitterESProducer
+es_module  KFTrajectoryFitterForOutIn = KFTrajectoryFitter from "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
+replace  KFTrajectoryFitterForOutIn.ComponentName = "KFFitterForOutIn"
+replace  KFTrajectoryFitterForOutIn.Propagator = "PropagatorWithMaterialOpposite"
+replace  KFTrajectoryFitterForOutIn.Estimator = "Chi2ForOutIn"
+
+
+# KFTrajectorySmootherESProducer
+es_module  KFTrajectorySmootherForOutIn = KFTrajectorySmoother from "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
+replace  KFTrajectorySmootherForOutIn.ComponentName = "KFSmootherForOutIn"
+replace  KFTrajectorySmootherForOutIn.Propagator = "PropagatorWithMaterial"
+replace  KFTrajectorySmootherForOutIn.Estimator = "Chi2ForOutIn"
+
+# KFFittingSmootherESProducer
+es_module  KFFittingSmootherForOutIn = KFFittingSmoother from "TrackingTools/TrackFitters/data/KFFittingSmootherESProducer.cfi"
+replace  KFFittingSmootherForOutIn.ComponentName = "KFFittingSmootherForOutIn"
+replace  KFFittingSmootherForOutIn.Fitter = "KFFitterForOutIn"
+replace  KFFittingSmootherForOutIn.Smoother = "KFSmootherForOutIn"
+
+
+
+############## Configure the fitters for In Out Tracking 
+
+module ckfInOutTracksFromConversions = TrackProducer
+{
+  string Fitter = "KFFittingSmootherForInOut"
+  string Propagator = "PropagatorWithMaterial"
+  string producer = "conversionTrackCandidates"
+  string src = "inOutTracksFromConversions"
+  string TTRHBuilder       =   "WithTrackAngle"
+  bool TrajectoryInEvent = false
+}
+
+
+es_module Chi2ForInOut = Chi2MeasurementEstimatorESProducer
+  {
+    string ComponentName = "Chi2ForInOut"
+    double MaxChi2 = 50.
+    double nSigma = 3.
+  }
+
+
+#KFTrajectoryFitterESProducer
+es_module  KFTrajectoryFitterForInOut = KFTrajectoryFitter from "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
+replace  KFTrajectoryFitterForInOut.ComponentName = "KFFitterForInOut"
+replace  KFTrajectoryFitterForInOut.Propagator = "PropagatorWithMaterial"
+replace  KFTrajectoryFitterForInOut.Estimator = "Chi2ForInOut"
+
+# KFTrajectorySmootherESProducer
+es_module  KFTrajectorySmootherForInOut = KFTrajectorySmoother from "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
+replace  KFTrajectorySmootherForInOut.ComponentName = "KFSmootherForInOut"
+replace  KFTrajectorySmootherForInOut.Propagator = "PropagatorWithMaterialOpposite"
+replace  KFTrajectorySmootherForInOut.Estimator = "Chi2ForInOut"
+
+# KFFittingSmootherESProducer
+es_module  KFFittingSmootherForInOut = KFFittingSmoother from "TrackingTools/TrackFitters/data/KFFittingSmootherESProducer.cfi"
+replace  KFFittingSmootherForInOut.ComponentName = "KFFittingSmootherForInOut"
+replace  KFFittingSmootherForInOut.Fitter = "KFFitterForInOut"
+replace  KFFittingSmootherForInOut.Smoother = "KFSmootherForInOut"
+
+
+# KFUpdatoerESProducer
+include "TrackingTools/KalmanUpdators/data/KFUpdatorESProducer.cfi"
+
+
+# Chi2MeasurementEstimatorESProducer
+##include "TrackingTools/KalmanUpdators/data/Chi2MeasurementEstimatorESProducer.cfi"
+
+#es_module Chi2MeasurementEstimatorForOutIn  = Chi2MeasurementEstimator from "TrackingTools/KalmanUpdators/data/Chi2MeasurementEstimatorESProducer.cfi"
+#replace   Chi2MeasurementEstimatorForOutIn.ComponentName = "Chi2ForOutIn"
+#replace   Chi2MeasurementEstimatorForOutIn.MaxChi2 = 100.
+
+#es_module Chi2MeasurementEstimatorForInOut  = Chi2MeasurementEstimator from "TrackingTools/KalmanUpdators/data/Chi2MeasurementEstimatorESProducer.cfi"
+#replace   Chi2MeasurementEstimatorForInOut.ComponentName = "Chi2ForInOut"
+#replace   Chi2MeasurementEstimatorForInOut.MaxChi2 = 50.
+
+
+
+
