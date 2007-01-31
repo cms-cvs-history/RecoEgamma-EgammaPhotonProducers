@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.5 2006/08/07 15:28:14 rahatlou Exp $
+# $Id: photons.cfi,v 1.6 2006/12/12 21:52:49 futyand Exp $
 #
 module photons = PhotonProducer {
   string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
@@ -8,6 +8,9 @@ module photons = PhotonProducer {
 
   string scIslandEndcapProducer   =          "correctedEndcapSuperClustersWithPreshower"
   string scIslandEndcapCollection       =    ""
+
+  # set to "" to use (0,0,0) as primary vertex
+  string primaryVertexProducer  =          "offlinePrimaryVerticesFromCTFTracks"
 
   string photonCollection =  ""
 
