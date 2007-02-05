@@ -18,20 +18,30 @@ es_module Chi2ForOutIn = Chi2MeasurementEstimatorESProducer
     double nSigma = 3.
   }
 
+#PropagatorWithMaterialESProducer 
+es_module  PropagatorWithMaterialForEle = MaterialPropagator from "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
+replace   PropagatorWithMaterialForEle.ComponentName = "PropWithMatEle"
+replace  PropagatorWithMaterialForEle.Mass = 0.000511 
+
+
+#PropagatorWithMaterialESProducer 
+es_module PropagatorWithMaterialOppositeForEle = OppositeMaterialPropagator from "TrackingTools/MaterialEffects/data/OppositeMaterialPropagator.cfi"
+replace   PropagatorWithMaterialOppositeForEle.ComponentName = "PropWithMatOppEle"
+replace   PropagatorWithMaterialOppositeForEle.Mass = 0.000511
 
 
 
 #KFTrajectoryFitterESProducer
 es_module  KFTrajectoryFitterForOutIn = KFTrajectoryFitter from "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
 replace  KFTrajectoryFitterForOutIn.ComponentName = "KFFitterForOutIn"
-replace  KFTrajectoryFitterForOutIn.Propagator = "PropagatorWithMaterialOpposite"
+replace  KFTrajectoryFitterForOutIn.Propagator = "PropWithMatEle"
 replace  KFTrajectoryFitterForOutIn.Estimator = "Chi2ForOutIn"
 
 
 # KFTrajectorySmootherESProducer
 es_module  KFTrajectorySmootherForOutIn = KFTrajectorySmoother from "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
 replace  KFTrajectorySmootherForOutIn.ComponentName = "KFSmootherForOutIn"
-replace  KFTrajectorySmootherForOutIn.Propagator = "PropagatorWithMaterial"
+replace  KFTrajectorySmootherForOutIn.Propagator = "PropWithMatOppEle"
 replace  KFTrajectorySmootherForOutIn.Estimator = "Chi2ForOutIn"
 
 # KFFittingSmootherESProducer
@@ -58,7 +68,7 @@ module ckfInOutTracksFromConversions = TrackProducer
 es_module Chi2ForInOut = Chi2MeasurementEstimatorESProducer
   {
     string ComponentName = "Chi2ForInOut"
-    double MaxChi2 = 50.
+    double MaxChi2 = 100.
     double nSigma = 3.
   }
 
@@ -66,13 +76,13 @@ es_module Chi2ForInOut = Chi2MeasurementEstimatorESProducer
 #KFTrajectoryFitterESProducer
 es_module  KFTrajectoryFitterForInOut = KFTrajectoryFitter from "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
 replace  KFTrajectoryFitterForInOut.ComponentName = "KFFitterForInOut"
-replace  KFTrajectoryFitterForInOut.Propagator = "PropagatorWithMaterial"
+replace  KFTrajectoryFitterForInOut.Propagator = "PropWithMatEle"
 replace  KFTrajectoryFitterForInOut.Estimator = "Chi2ForInOut"
 
 # KFTrajectorySmootherESProducer
 es_module  KFTrajectorySmootherForInOut = KFTrajectorySmoother from "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
 replace  KFTrajectorySmootherForInOut.ComponentName = "KFSmootherForInOut"
-replace  KFTrajectorySmootherForInOut.Propagator = "PropagatorWithMaterialOpposite"
+replace  KFTrajectorySmootherForInOut.Propagator = "PropWithMatOppEle"
 replace  KFTrajectorySmootherForInOut.Estimator = "Chi2ForInOut"
 
 # KFFittingSmootherESProducer
