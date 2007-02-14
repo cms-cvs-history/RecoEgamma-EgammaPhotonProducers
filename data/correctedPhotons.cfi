@@ -1,12 +1,12 @@
 #
 # producer to apply corrections to photons
-# $Id: correctedPhotons.cfi,v 1.5 2006/07/27 19:38:46 nancy Exp $
+# $Id: correctedPhotons.cfi,v 1.6 2006/12/17 14:14:31 futyand Exp $
 #
 module correctedPhotons = PhotonCorrectionProducer {
   string photonProducer          =     "photons"
   string photonCollection        =     ""
   string photonCorrCollection =     ""
-  string algoCollection = "E9ESC E1E9 Eta BasketBorder"
+  string algoCollection = "E9ESCPtdr E1E9Ptdr EtaPtdr PhiPtdr"
   string barrelClusterShapeMapProducer  = "hybridSuperClusters"
   string barrelClusterShapeMapCollection = "hybridShapeAssoc"
   string endcapClusterShapeMapProducer  = "islandBasicClusters"
