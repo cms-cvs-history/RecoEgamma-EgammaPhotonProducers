@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.7 2007/01/31 17:14:17 futyand Exp $
+# $Id: photons.cfi,v 1.8 2007/02/14 23:50:59 futyand Exp $
 #
 module photons = PhotonProducer {
   string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
@@ -13,6 +13,20 @@ module photons = PhotonProducer {
   string barrelClusterShapeMapCollection = "hybridShapeAssoc"
   string endcapClusterShapeMapProducer  = "islandBasicClusters"
   string endcapClusterShapeMapCollection = "islandEndcapShapeAssoc"
+
+  string barrelHitProducer   = "ecalRecHit"
+  string endcapHitProducer   = "ecalRecHit"
+  string barrelHitCollection = "EcalRecHitsEB"
+  string endcapHitCollection = "EcalRecHitsEE"
+
+  string pixelSeedAssocProducer   = "electronPixelSeeds"
+
+  bool posCalc_logweight = true
+  double posCalc_t0_barl = 7.7
+  double posCalc_t0_endc = 6.3
+  double posCalc_t0_endcPresh = 3.6
+  double posCalc_w0 = 4.2
+  double posCalc_x0 = 0.89
 
   # set to "" to use (0,0,0) as primary vertex
   #string primaryVertexProducer  =          "offlinePrimaryVerticesFromCTFTracks"
