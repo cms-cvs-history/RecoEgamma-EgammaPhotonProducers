@@ -6,7 +6,6 @@
 #include "RecoEgamma/EgammaPhotonProducers/interface/ConvertedPhotonProducer.h"
 #include "RecoEgamma/EgammaPhotonProducers/interface/ConversionTrackCandidateProducer.h"
 #include "RecoEgamma/EgammaPhotonProducers/interface/ConvertedPhotonAnalyzer.h"
-#include "RecoEgamma/EgammaPhotonProducers/interface/TrackProducerWithSCAssociation.h"
 
 
 
@@ -20,4 +19,3 @@ DEFINE_ANOTHER_FWK_MODULE(PhotonCorrectionProducer);
 DEFINE_ANOTHER_FWK_MODULE(ConvertedPhotonProducer);
 DEFINE_ANOTHER_FWK_MODULE(ConversionTrackCandidateProducer);
 DEFINE_ANOTHER_FWK_MODULE(ConvertedPhotonAnalyzer);
-DEFINE_ANOTHER_FWK_MODULE(TrackProducerWithSCAssociation);
