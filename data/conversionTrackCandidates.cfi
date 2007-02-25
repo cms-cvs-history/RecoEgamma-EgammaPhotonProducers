@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.4 2007/02/19 21:06:56 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.5 2007/02/23 18:11:40 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -71,11 +71,16 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
     string scIslandEndcapCollection =     ""
 
 
-    string outInTrackCandidateCollection = "outInTracksFromConversions" 
-    string inOutTrackCandidateCollection = "inOutTracksFromConversions" 
+    string outInTrackCandidateBarrelCollection = "outInTracksFromConversionsBarrel" 
+    string inOutTrackCandidateBarrelCollection = "inOutTracksFromConversionsBarrel" 
+    string outInTrackCandidateEndcapCollection = "outInTracksFromConversionsEndcap" 
+    string inOutTrackCandidateEndcapCollection = "inOutTracksFromConversionsEndcap" 
 
-    string outInTrackCandidateSCAssociationCollection = "outInTrackCandidateSCAssociationCollection"
-    string inOutTrackCandidateSCAssociationCollection = "inOutTrackCandidateSCAssociationCollection"
+
+    string outInTrackCandidateSCBarrelAssociationCollection = "outInTrackCandidateSCBarrelAssociationCollection"
+    string inOutTrackCandidateSCBarrelAssociationCollection = "inOutTrackCandidateSCBarrelAssociationCollection"
+    string outInTrackCandidateSCEndcapAssociationCollection = "outInTrackCandidateSCEndcapAssociationCollection"
+    string inOutTrackCandidateSCEndcapAssociationCollection = "inOutTrackCandidateSCEndcapAssociationCollection"
 
 	
 
