@@ -1,11 +1,25 @@
 ############## Configure the fitters for  Out In Tracking 
 #TrackProducers
-module ckfOutInTracksFromConversions = TrackProducer
+module ckfOutInTracksFromConversionsBarrel = TrackProducerWithSCAssociation
 {
   string Fitter = "KFFittingSmootherForOutIn"	
   string Propagator = "PropagatorWithMaterial"
   string producer = "conversionTrackCandidates"
-  string src = "outInTracksFromConversions"
+  string src = "outInTracksFromConversionsBarrel"
+  string trackCandidateSCAssociationCollection = "outInTrackCandidateSCBarrelAssociationCollection"
+  string recoTrackSCAssociationCollection = "outInTrackSCBarrelAssociationCollection"
+  string TTRHBuilder       =   "WithTrackAngle"
+  bool TrajectoryInEvent = false
+}
+
+module ckfOutInTracksFromConversionsEndcap = TrackProducerWithSCAssociation
+{
+  string Fitter = "KFFittingSmootherForOutIn"	
+  string Propagator = "PropagatorWithMaterial"
+  string producer = "conversionTrackCandidates"
+  string src = "outInTracksFromConversionsEndcap"
+  string trackCandidateSCAssociationCollection = "outInTrackCandidateSCEndcapAssociationCollection"
+  string recoTrackSCAssociationCollection = "outInTrackSCEndcapAssociationCollection"
   string TTRHBuilder       =   "WithTrackAngle"
   bool TrajectoryInEvent = false
 }
@@ -54,12 +68,25 @@ replace  KFFittingSmootherForOutIn.Smoother = "KFSmootherForOutIn"
 
 ############## Configure the fitters for In Out Tracking 
 
-module ckfInOutTracksFromConversions = TrackProducer
+module ckfInOutTracksFromConversionsBarrel = TrackProducerWithSCAssociation
 {
   string Fitter = "KFFittingSmootherForInOut"
   string Propagator = "PropagatorWithMaterial"
   string producer = "conversionTrackCandidates"
-  string src = "inOutTracksFromConversions"
+  string src = "inOutTracksFromConversionsBarrel"
+  string trackCandidateSCAssociationCollection = "inOutTrackCandidateSCBarrelAssociationCollection"
+  string recoTrackSCAssociationCollection = "inOutTrackSCBarrelAssociationCollection"
+  string TTRHBuilder       =   "WithTrackAngle"
+  bool TrajectoryInEvent = false
+}
+module ckfInOutTracksFromConversionsEndcap = TrackProducerWithSCAssociation
+{
+  string Fitter = "KFFittingSmootherForInOut"
+  string Propagator = "PropagatorWithMaterial"
+  string producer = "conversionTrackCandidates"
+  string src = "inOutTracksFromConversionsEndcap"
+  string trackCandidateSCAssociationCollection = "inOutTrackCandidateSCEndcapAssociationCollection"
+  string recoTrackSCAssociationCollection = "inOutTrackSCEndcapAssociationCollection"
   string TTRHBuilder       =   "WithTrackAngle"
   bool TrajectoryInEvent = false
 }

@@ -7,6 +7,6 @@ include "RecoEgamma/EgammaPhotonProducers/data/conversionTracks.cfi"
 
 
 
-sequence ckfTracksFromConversions = {conversionTrackCandidates,ckfOutInTracksFromConversions, ckfInOutTracksFromConversions}
+sequence ckfTracksFromConversions = {conversionTrackCandidates,ckfOutInTracksFromConversionsBarrel, ckfInOutTracksFromConversionsBarrel,ckfOutInTracksFromConversionsEndcap, ckfInOutTracksFromConversionsEndcap}
 
 

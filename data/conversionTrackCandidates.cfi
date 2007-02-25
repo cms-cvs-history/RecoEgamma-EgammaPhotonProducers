@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.2 2007/01/23 18:04:19 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.5 2007/02/23 18:11:40 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -35,21 +35,26 @@ es_module eleLooseChi2 = Chi2MeasurementEstimatorESProducer
 
 #es_module alongMomElePropagator = MaterialPropagator from "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
 
+#PropagatorWithMaterialESProducer 
 es_module alongMomElePropagator = MaterialPropagator from "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
 replace  alongMomElePropagator.Mass = 0.000511 
+replace   alongMomElePropagator.ComponentName = "alongMomElePropagator"
 
-
+#PropagatorWithMaterialESProducer 
 es_module oppositeToMomElePropagator = OppositeMaterialPropagator from "TrackingTools/MaterialEffects/data/OppositeMaterialPropagator.cfi"
 replace   oppositeToMomElePropagator.Mass = 0.000511
-
+replace   oppositeToMomElePropagator.ComponentName = "oppositeToMomElePropagator"
 
 
 #TrajectoryBuilder
 es_module TrajectoryBuilderForConversions = CkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cfi"
 replace TrajectoryBuilderForConversions.ComponentName   = "TrajectoryBuilderForConversions"
+replace TrajectoryBuilderForConversions.ptCut  = 0.9
 replace TrajectoryBuilderForConversions.minimumNumberOfHits  = 3
 replace TrajectoryBuilderForConversions.maxLostHit           = 2
-replace TrajectoryBuilderForConversions.estimator =  eleLooseChi2
+replace TrajectoryBuilderForConversions.estimator =  "eleLooseChi2"
+replace TrajectoryBuilderForConversions.propagatorAlong ="alongMomElePropagator"
+replace TrajectoryBuilderForConversions.propagatorOpposite ="oppositeToMomElePropagator"
 
 
 
@@ -66,8 +71,18 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
     string scIslandEndcapCollection =     ""
 
 
-    string outInTrackCandidateCollection = "outInTracksFromConversions" 
-    string inOutTrackCandidateCollection = "inOutTracksFromConversions" 	
+    string outInTrackCandidateBarrelCollection = "outInTracksFromConversionsBarrel" 
+    string inOutTrackCandidateBarrelCollection = "inOutTracksFromConversionsBarrel" 
+    string outInTrackCandidateEndcapCollection = "outInTracksFromConversionsEndcap" 
+    string inOutTrackCandidateEndcapCollection = "inOutTracksFromConversionsEndcap" 
+
+
+    string outInTrackCandidateSCBarrelAssociationCollection = "outInTrackCandidateSCBarrelAssociationCollection"
+    string inOutTrackCandidateSCBarrelAssociationCollection = "inOutTrackCandidateSCBarrelAssociationCollection"
+    string outInTrackCandidateSCEndcapAssociationCollection = "outInTrackCandidateSCEndcapAssociationCollection"
+    string inOutTrackCandidateSCEndcapAssociationCollection = "inOutTrackCandidateSCEndcapAssociationCollection"
+
+	
 
     string TrajectoryBuilder    = 	"TrajectoryBuilderForConversions"
 
