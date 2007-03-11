@@ -2,8 +2,10 @@
 #TrackProducers
 module ckfOutInTracksFromConversionsBarrel = TrackProducerWithSCAssociation
 {
-  string Fitter = "KFFittingSmootherForOutIn"	
-  string Propagator = "PropagatorWithMaterial"
+  string ComponentName = "ckfOutInTracksFromConversionsBarrel"
+  string Fitter = "KFFitterForOutIn"	
+  #string Propagator = "PropagatorWithMaterial"
+  string Propagator = "PropagatorWithMaterialForEle"
   string producer = "conversionTrackCandidates"
   string src = "outInTracksFromConversionsBarrel"
   string trackCandidateSCAssociationCollection = "outInTrackCandidateSCBarrelAssociationCollection"
@@ -14,8 +16,10 @@ module ckfOutInTracksFromConversionsBarrel = TrackProducerWithSCAssociation
 
 module ckfOutInTracksFromConversionsEndcap = TrackProducerWithSCAssociation
 {
-  string Fitter = "KFFittingSmootherForOutIn"	
-  string Propagator = "PropagatorWithMaterial"
+  string ComponentName = "ckfOutInTracksFromConversionsEndcap"
+  string Fitter = "KFFitterForOutIn"	
+  #string Propagator = "PropagatorWithMaterial"
+  string Propagator = "PropagatorWithMaterialForEle"
   string producer = "conversionTrackCandidates"
   string src = "outInTracksFromConversionsEndcap"
   string trackCandidateSCAssociationCollection = "outInTrackCandidateSCEndcapAssociationCollection"
@@ -28,19 +32,19 @@ module ckfOutInTracksFromConversionsEndcap = TrackProducerWithSCAssociation
 es_module Chi2ForOutIn = Chi2MeasurementEstimatorESProducer
   {
     string ComponentName = "Chi2ForOutIn"
-    double MaxChi2 = 100.
+    double MaxChi2 = 500.
     double nSigma = 3.
   }
 
 #PropagatorWithMaterialESProducer 
 es_module  PropagatorWithMaterialForEle = MaterialPropagator from "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
-replace   PropagatorWithMaterialForEle.ComponentName = "PropWithMatEle"
+replace   PropagatorWithMaterialForEle.ComponentName = "PropagatorWithMaterialForEle"
 replace  PropagatorWithMaterialForEle.Mass = 0.000511 
 
 
 #PropagatorWithMaterialESProducer 
 es_module PropagatorWithMaterialOppositeForEle = OppositeMaterialPropagator from "TrackingTools/MaterialEffects/data/OppositeMaterialPropagator.cfi"
-replace   PropagatorWithMaterialOppositeForEle.ComponentName = "PropWithMatOppEle"
+replace   PropagatorWithMaterialOppositeForEle.ComponentName = "PropagatorWithMaterialOppositeForEle"
 replace   PropagatorWithMaterialOppositeForEle.Mass = 0.000511
 
 
@@ -48,14 +52,14 @@ replace   PropagatorWithMaterialOppositeForEle.Mass = 0.000511
 #KFTrajectoryFitterESProducer
 es_module  KFTrajectoryFitterForOutIn = KFTrajectoryFitter from "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
 replace  KFTrajectoryFitterForOutIn.ComponentName = "KFFitterForOutIn"
-replace  KFTrajectoryFitterForOutIn.Propagator = "PropWithMatEle"
+replace  KFTrajectoryFitterForOutIn.Propagator = "PropagatorWithMaterialForEle"
 replace  KFTrajectoryFitterForOutIn.Estimator = "Chi2ForOutIn"
 
 
 # KFTrajectorySmootherESProducer
 es_module  KFTrajectorySmootherForOutIn = KFTrajectorySmoother from "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
 replace  KFTrajectorySmootherForOutIn.ComponentName = "KFSmootherForOutIn"
-replace  KFTrajectorySmootherForOutIn.Propagator = "PropWithMatOppEle"
+replace  KFTrajectorySmootherForOutIn.Propagator = "PropagatorWithMaterialOppositeForEle"
 replace  KFTrajectorySmootherForOutIn.Estimator = "Chi2ForOutIn"
 
 # KFFittingSmootherESProducer
@@ -70,8 +74,10 @@ replace  KFFittingSmootherForOutIn.Smoother = "KFSmootherForOutIn"
 
 module ckfInOutTracksFromConversionsBarrel = TrackProducerWithSCAssociation
 {
+  string ComponentName = "ckfInOutTracksFromConversionsBarrel"
   string Fitter = "KFFittingSmootherForInOut"
-  string Propagator = "PropagatorWithMaterial"
+  #string Propagator = "PropagatorWithMaterial"
+  string Propagator = "PropagatorWithMaterialForEle"
   string producer = "conversionTrackCandidates"
   string src = "inOutTracksFromConversionsBarrel"
   string trackCandidateSCAssociationCollection = "inOutTrackCandidateSCBarrelAssociationCollection"
@@ -81,8 +87,11 @@ module ckfInOutTracksFromConversionsBarrel = TrackProducerWithSCAssociation
 }
 module ckfInOutTracksFromConversionsEndcap = TrackProducerWithSCAssociation
 {
+
+  string ComponentName = "ckfInOutTracksFromConversionsEndcap"
   string Fitter = "KFFittingSmootherForInOut"
-  string Propagator = "PropagatorWithMaterial"
+ # string Propagator = "PropagatorWithMaterial"
+  string Propagator = "PropagatorWithMaterialForEle"
   string producer = "conversionTrackCandidates"
   string src = "inOutTracksFromConversionsEndcap"
   string trackCandidateSCAssociationCollection = "inOutTrackCandidateSCEndcapAssociationCollection"
@@ -103,13 +112,13 @@ es_module Chi2ForInOut = Chi2MeasurementEstimatorESProducer
 #KFTrajectoryFitterESProducer
 es_module  KFTrajectoryFitterForInOut = KFTrajectoryFitter from "TrackingTools/TrackFitters/data/KFTrajectoryFitterESProducer.cfi"
 replace  KFTrajectoryFitterForInOut.ComponentName = "KFFitterForInOut"
-replace  KFTrajectoryFitterForInOut.Propagator = "PropWithMatEle"
+replace  KFTrajectoryFitterForInOut.Propagator = "PropagatorWithMaterialForEle"
 replace  KFTrajectoryFitterForInOut.Estimator = "Chi2ForInOut"
 
 # KFTrajectorySmootherESProducer
 es_module  KFTrajectorySmootherForInOut = KFTrajectorySmoother from "TrackingTools/TrackFitters/data/KFTrajectorySmootherESProducer.cfi"
 replace  KFTrajectorySmootherForInOut.ComponentName = "KFSmootherForInOut"
-replace  KFTrajectorySmootherForInOut.Propagator = "PropWithMatOppEle"
+replace  KFTrajectorySmootherForInOut.Propagator = "PropagatorWithMaterialOppositeForEle"
 replace  KFTrajectorySmootherForInOut.Estimator = "Chi2ForInOut"
 
 # KFFittingSmootherESProducer
