@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.7 2007/03/06 12:31:53 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.8 2007/03/06 12:33:00 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -92,10 +92,8 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
 
     PSet TransientInitialStateEstimatorParameters =
       {
-         string propagatorAlongTISE    = "PropagatorWithMaterial"
-         string propagatorOppositeTISE = "PropagatorWithMaterialOpposite"
-#         string propagatorAlongTISE    = "alongMomElePropagator"
-#         string propagatorOppositeTISE = "oppositeToMomElePropagator"
+         string propagatorAlongTISE    = "alongMomElePropagator"
+         string propagatorOppositeTISE = "oppositeToMomElePropagator"
       }	
 
   
