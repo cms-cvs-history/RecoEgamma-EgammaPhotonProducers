@@ -1,0 +1,27 @@
+#
+#  Author: N. Marinelli, U. of Notre Dame, US
+#
+
+module convertedPhotonAnalyzer = ConvertedPhotonAnalyzer {
+
+   untracked string HistOutFile = "/tmp/nancy/convertedPhotonAnalyzer.root"
+   untracked string moduleLabelMC = 'source'
+   untracked string moduleLabelTk = 'g4SimHits'
+   untracked string moduleLabelVtx = 'g4SimHits'
+   untracked string moduleLabelHit = 'g4SimHits'
+
+   string phoProducer = "convertedPhotons"
+   string convertedPhotonCollection = ""
+
+   string conversionTrackCandidateProducer = "conversionTrackCandidates"
+   string outInTrackCandidateCollection    = "outInTracksFromConversions" 
+   string inOutTrackCandidateCollection    = "inOutTracksFromConversions" 	
+
+   string conversionOITrackProducer = "ckfOutInTracksFromConversions"
+   string outInTrackCollection    = ""
+ 
+   string conversionIOTrackProducer = "ckfInOutTracksFromConversions"	
+   string inOutTrackCollection    = ""
+ 
+
+}
