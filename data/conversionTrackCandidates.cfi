@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.8 2007/03/06 12:33:00 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.9 2007/03/11 15:36:59 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -25,38 +25,8 @@ include "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
 # TransientTracks
 include "TrackingTools/TransientTrack/data/TransientTrackBuilder.cfi"
 
-
-es_module eleLooseChi2 = Chi2MeasurementEstimatorESProducer
-  {
-    string ComponentName = "eleLooseChi2"
-    double MaxChi2 = 100.
-    double nSigma = 3.
-  }
-
-#es_module alongMomElePropagator = MaterialPropagator from "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
-
-#PropagatorWithMaterialESProducer 
-es_module alongMomElePropagator = MaterialPropagator from "TrackingTools/MaterialEffects/data/MaterialPropagator.cfi"
-replace  alongMomElePropagator.Mass = 0.000511 
-replace   alongMomElePropagator.ComponentName = "alongMomElePropagator"
-
-#PropagatorWithMaterialESProducer 
-es_module oppositeToMomElePropagator = OppositeMaterialPropagator from "TrackingTools/MaterialEffects/data/OppositeMaterialPropagator.cfi"
-replace   oppositeToMomElePropagator.Mass = 0.000511
-replace   oppositeToMomElePropagator.ComponentName = "oppositeToMomElePropagator"
-
-
 #TrajectoryBuilder
-es_module TrajectoryBuilderForConversions = CkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cfi"
-replace TrajectoryBuilderForConversions.ComponentName   = "TrajectoryBuilderForConversions"
-replace TrajectoryBuilderForConversions.ptCut  = 0.9
-replace TrajectoryBuilderForConversions.minimumNumberOfHits  = 3
-replace TrajectoryBuilderForConversions.maxLostHit           = 2
-replace TrajectoryBuilderForConversions.estimator =  "eleLooseChi2"
-replace TrajectoryBuilderForConversions.propagatorAlong ="alongMomElePropagator"
-replace TrajectoryBuilderForConversions.propagatorOpposite ="oppositeToMomElePropagator"
-
-
+include "RecoEgamma/EgammaPhotonProducers/data/trajectoryBuilderForConversions.cfi"
 
 module conversionTrackCandidates = ConversionTrackCandidateProducer {
 
