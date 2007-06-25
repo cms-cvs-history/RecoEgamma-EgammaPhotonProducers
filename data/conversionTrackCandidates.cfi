@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.9 2007/03/11 15:36:59 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.10 2007/03/14 18:31:06 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -58,6 +58,11 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
 
     bool   outInSeedCleaning  = true
     bool   inOutSeedCleaning  = true
+
+    string OutInRedundantSeedCleaner = "CachingSeedCleanerBySharedInput"
+    string InOutRedundantSeedCleaner = "CachingSeedCleanerBySharedInput"
+
+	
     double  smootherChiSquareCut = 100.
 
     PSet TransientInitialStateEstimatorParameters =
