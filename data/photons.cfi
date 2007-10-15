@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.8 2007/02/14 23:50:59 futyand Exp $
+# $Id: photons.cfi,v 1.9 2007/02/19 21:59:54 futyand Exp $
 #
 module photons = PhotonProducer {
   string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
@@ -19,7 +19,7 @@ module photons = PhotonProducer {
   string barrelHitCollection = "EcalRecHitsEB"
   string endcapHitCollection = "EcalRecHitsEE"
 
-  string pixelSeedAssocProducer   = "electronPixelSeeds"
+  string pixelSeedProducer   = "electronPixelSeeds"
 
   bool posCalc_logweight = true
   double posCalc_t0_barl = 7.7
