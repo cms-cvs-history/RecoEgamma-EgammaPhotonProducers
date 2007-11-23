@@ -7,9 +7,7 @@ include "RecoEgamma/EgammaPhotonProducers/data/propOppoMomentumWithMaterialForEl
 #TrajectoryBuilder
 es_module TrajectoryBuilderForConversions = CkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cfi"
 replace TrajectoryBuilderForConversions.ComponentName   = "TrajectoryBuilderForConversions"
-replace TrajectoryBuilderForConversions.ptCut  = 0.9
-replace TrajectoryBuilderForConversions.minimumNumberOfHits  = 3
-replace TrajectoryBuilderForConversions.maxLostHit           = 2
 replace TrajectoryBuilderForConversions.estimator =  "eleLooseChi2"
 replace TrajectoryBuilderForConversions.propagatorAlong ="alongMomElePropagator"
 replace TrajectoryBuilderForConversions.propagatorOpposite ="oppositeToMomElePropagator"
+replace TrajectoryBuilderForConversions.trajectoryFilterName = "TrajectoryFilterForConversions"

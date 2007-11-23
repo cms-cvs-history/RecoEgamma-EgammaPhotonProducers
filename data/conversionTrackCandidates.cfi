@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.10 2007/03/14 18:31:06 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.11 2007/06/25 16:05:03 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -25,6 +25,8 @@ include "RecoTracker/MeasurementDet/data/MeasurementTrackerESProducer.cfi"
 # TransientTracks
 include "TrackingTools/TransientTrack/data/TransientTrackBuilder.cfi"
 
+#TrajectoryFilter
+include "RecoEgamma/EgammaPhotonProducers/data/trajectoryFilterForConversions.cfi"
 #TrajectoryBuilder
 include "RecoEgamma/EgammaPhotonProducers/data/trajectoryBuilderForConversions.cfi"
 
