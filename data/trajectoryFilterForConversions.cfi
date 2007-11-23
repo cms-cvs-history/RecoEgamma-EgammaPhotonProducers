@@ -1,0 +1,6 @@
+es_module TrajectoryFilterForConversions = trajectoryFilterESProducer from "TrackingTools/TrajectoryFiltering/data/TrajectoryFilterESProducer.cfi"
+
+replace TrajectoryFilterForConversions.ComponentName = "TrajectoryFilterForConversions"
+replace TrajectoryFilterForConversions.filterPset.minimumNumberOfHits = 3
+replace TrajectoryFilterForConversions.filterPset.maxLostHits = 2
+replace TrajectoryFilterForConversions.filterPset.minPt   = 0.9
