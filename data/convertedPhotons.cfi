@@ -22,11 +22,11 @@ module photonWithConversions = ConvertedPhotonProducer {
    string endcapClusterShapeMapCollection = "islandEndcapShapeAssoc"
 
    string convertedPhotonCollection = ""	
-   string photonExtraCollection = ""
+   string photonWithConversionsCollection = ""
 
-   string photonProducer          =     "photons"
-   string photonCollection        =     ""
-   string photonCorrCollection =     ""
+   string photonProducer          =     "correctedPhotons"
+   string photonCorrCollection        =  ""
+
 
 
    string conversionOITrackProducerBarrel = "ckfOutInTracksFromConversionsBarrel"
