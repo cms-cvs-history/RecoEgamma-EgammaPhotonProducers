@@ -18,6 +18,7 @@ module ckfOutInTracksFromConversionsBarrel = TrackProducerWithSCAssociation
   string recoTrackSCAssociationCollection = "outInTrackSCBarrelAssociationCollection"
   string TTRHBuilder       =   "WithTrackAngle"
   bool TrajectoryInEvent = false
+  bool useHitsSplitting = false
 }
 
 

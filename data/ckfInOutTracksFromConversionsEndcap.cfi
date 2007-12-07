@@ -17,6 +17,7 @@ module ckfInOutTracksFromConversionsEndcap = TrackProducerWithSCAssociation
   string recoTrackSCAssociationCollection = "inOutTrackSCEndcapAssociationCollection"
   string TTRHBuilder       =   "WithTrackAngle"
   bool TrajectoryInEvent = false
+  bool useHitsSplitting = false
 }
 
 
