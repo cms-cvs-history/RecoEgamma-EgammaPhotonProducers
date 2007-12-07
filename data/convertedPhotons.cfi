@@ -1,8 +1,9 @@
 #
 #  configuration for producer of converted photons
-#  $Id: convertedPhotons.cfi,v 1.11 2007/02/25 16:33:49 nancy Exp $
+#  $Id: convertedPhotons.cfi,v 1.12 2007/05/10 12:18:28 nancy Exp $
 #
-module convertedPhotons = ConvertedPhotonProducer {
+
+module photonWithConversions = ConvertedPhotonProducer {
 
 
     string  bcProducer  =   "islandBasicClusters"
@@ -21,6 +22,12 @@ module convertedPhotons = ConvertedPhotonProducer {
    string endcapClusterShapeMapCollection = "islandEndcapShapeAssoc"
 
    string convertedPhotonCollection = ""	
+   string photonExtraCollection = ""
+
+   string photonProducer          =     "photons"
+   string photonCollection        =     ""
+   string photonCorrCollection =     ""
+
 
    string conversionOITrackProducerBarrel = "ckfOutInTracksFromConversionsBarrel"
    string outInTrackBarrelCollection    = ""
