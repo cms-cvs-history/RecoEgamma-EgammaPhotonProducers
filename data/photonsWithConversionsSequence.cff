@@ -3,7 +3,7 @@
 # Conversion Track candidate producer 
 include "RecoEgamma/EgammaPhotonProducers/data/conversionTracks.cff"
 # converted photon producer
-include "RecoEgamma/EgammaPhotonProducers/data/photonsWithConversions.cfi
+include "RecoEgamma/EgammaPhotonProducers/data/photonsWithConversions.cfi"
 
 sequence photonsWithConversionsSequence = {ckfTracksFromConversions, photonsWithConversions}
 
