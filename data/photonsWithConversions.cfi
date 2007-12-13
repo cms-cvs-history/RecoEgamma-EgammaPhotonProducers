@@ -21,8 +21,8 @@ module photonsWithConversions = ConvertedPhotonProducer {
    string endcapClusterShapeMapProducer  = "islandBasicClusters"
    string endcapClusterShapeMapCollection = "islandEndcapShapeAssoc"
 
-   string convertedPhotonCollection = ""	
-   string photonWithConversionsCollection = ""
+   string convertedPhotonCollection = "conversions"	
+   string photonWithConversionsCollection = "photonsWithConversions"
 
    string photonProducer          =     "correctedPhotons"
    string photonCorrCollection        =  ""
