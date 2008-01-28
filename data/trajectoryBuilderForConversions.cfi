@@ -5,9 +5,17 @@ include "RecoEgamma/EgammaPhotonProducers/data/propOppoMomentumWithMaterialForEl
 
 
 #TrajectoryBuilder
+include "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cff"
 es_module TrajectoryBuilderForConversions = CkfTrajectoryBuilder from "RecoTracker/CkfPattern/data/CkfTrajectoryBuilderESProducer.cfi"
-replace TrajectoryBuilderForConversions.ComponentName   = "TrajectoryBuilderForConversions"
-replace TrajectoryBuilderForConversions.estimator =  "eleLooseChi2"
-replace TrajectoryBuilderForConversions.propagatorAlong ="alongMomElePropagator"
-replace TrajectoryBuilderForConversions.propagatorOpposite ="oppositeToMomElePropagator"
+replace TrajectoryBuilderForConversions.ComponentName        = "TrajectoryBuilderForConversions"
+replace TrajectoryBuilderForConversions.estimator            = "eleLooseChi2"
+replace TrajectoryBuilderForConversions.TTRHBuilder          = "WithTrackAngle"
+replace TrajectoryBuilderForConversions.updator              = "KFUpdator"
+replace TrajectoryBuilderForConversions.propagatorAlong      = "alongMomElePropagator"
+replace TrajectoryBuilderForConversions.propagatorOpposite   = "oppositeToMomElePropagator"
 replace TrajectoryBuilderForConversions.trajectoryFilterName = "TrajectoryFilterForConversions"
+replace TrajectoryBuilderForConversions.maxCand              = 5
+replace TrajectoryBuilderForConversions.lostHitPenalty       = 30.
+replace TrajectoryBuilderForConversions.intermediateCleaning = true
+replace TrajectoryBuilderForConversions.alwaysUseInvalidHits = true
+

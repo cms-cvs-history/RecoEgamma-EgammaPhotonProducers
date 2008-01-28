@@ -7,4 +7,4 @@ es_module  KFTrajectoryFitterForInOut = KFTrajectoryFitter from "TrackingTools/T
 replace  KFTrajectoryFitterForInOut.ComponentName = "KFFitterForInOut"
 replace  KFTrajectoryFitterForInOut.Propagator = "alongMomElePropagator"
 replace  KFTrajectoryFitterForInOut.Estimator = "Chi2ForInOut"
-
+replace  KFTrajectoryFitterForInOut.minHits = 3

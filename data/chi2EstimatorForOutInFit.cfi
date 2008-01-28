@@ -1,9 +1,7 @@
-es_module Chi2ForOutIn = Chi2MeasurementEstimatorESProducer
-  {
-    string ComponentName = "Chi2ForOutIn"
-    double MaxChi2 = 500.
-    double nSigma = 3.
-  }
+es_module Chi2MeasurementEstimatorForOutIn  = Chi2MeasurementEstimator from "TrackingTools/KalmanUpdators/data/Chi2MeasurementEstimatorESProducer.cfi"
+replace   Chi2MeasurementEstimatorForOutIn.ComponentName = "Chi2ForOutIn"
+replace   Chi2MeasurementEstimatorForOutIn.MaxChi2 = 500.
+replace   Chi2MeasurementEstimatorForOutIn.nSigma = 3.
 
 
 

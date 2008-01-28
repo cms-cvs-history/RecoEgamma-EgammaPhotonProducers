@@ -1,8 +1,7 @@
-
-es_module eleLooseChi2 = Chi2MeasurementEstimatorESProducer
-  {
-    string ComponentName = "eleLooseChi2"
-    double MaxChi2 = 100.
-    double nSigma = 3.
-  }
+es_module chi2CutForConversionTrajectoryBuilder = Chi2MeasurementEstimator from "TrackingTools/KalmanUpdators/data/Chi2MeasurementEstimatorESProducer.cfi"
+  
+    replace chi2CutForConversionTrajectoryBuilder.ComponentName = "eleLooseChi2"
+    replace chi2CutForConversionTrajectoryBuilder.MaxChi2 = 100000.
+    replace chi2CutForConversionTrajectoryBuilder.nSigma = 3.
+  
 

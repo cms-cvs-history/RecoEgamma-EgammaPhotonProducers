@@ -7,4 +7,5 @@ es_module  KFFittingSmootherForInOut = KFFittingSmoother from "TrackingTools/Tra
 replace  KFFittingSmootherForInOut.ComponentName = "KFFittingSmootherForInOut"
 replace  KFFittingSmootherForInOut.Fitter = "KFFitterForInOut"
 replace  KFFittingSmootherForInOut.Smoother = "KFSmootherForInOut"
-
+replace  KFFittingSmootherForInOut.EstimateCut = -1
+replace	 KFFittingSmootherForInOut.MinNumberOfHits = 3
