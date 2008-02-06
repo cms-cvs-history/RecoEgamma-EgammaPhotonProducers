@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.12 2008/01/20 17:12:30 nancy Exp $
+# $Id: photons.cfi,v 1.13 2008/01/20 17:15:02 nancy Exp $
 #
 module photons = PhotonProducer {
   string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
@@ -33,12 +33,9 @@ module photons = PhotonProducer {
   double posCalc_t0_endcPresh = 3.6
   double posCalc_w0 = 4.2
   double posCalc_x0 = 0.89
-
-  # set to "" to use (0,0,0) as primary vertex
-  #string primaryVertexProducer  =          "offlinePrimaryVerticesFromCTFTracks"
-  string primaryVertexProducer  =          ""
-
+  string primaryVertexProducer  =          "offlinePrimaryVerticesFromCTFTracks"
   string photonCollection =  ""
+  bool usePrimaryVertex = true
 
 }
 
