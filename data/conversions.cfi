@@ -1,0 +1,48 @@
+#
+#  configuration for producer of converted photons
+#  
+#
+
+module conversions = ConvertedPhotonProducer {
+
+
+    string  bcProducer  =   "islandBasicClusters"
+    string  bcBarrelCollection = "islandBarrelBasicClusters"
+    string  bcEndcapCollection = "islandEndcapBasicClusters"
+
+    string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
+    string scHybridBarrelCollection =     ""
+
+    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
+    string scIslandEndcapCollection =     ""
+
+   string barrelClusterShapeMapProducer  = "hybridSuperClusters"
+   string barrelClusterShapeMapCollection = "hybridShapeAssoc"
+   string endcapClusterShapeMapProducer  = "islandBasicClusters"
+   string endcapClusterShapeMapCollection = "islandEndcapShapeAssoc"
+
+   string convertedPhotonCollection = "conversions"	
+
+
+   string conversionOITrackProducerBarrel = "ckfOutInTracksFromConversionsBarrel"
+   string outInTrackBarrelCollection    = ""
+   string outInTrackSCBarrelAssociation = "outInTrackSCBarrelAssociationCollection"
+
+   string conversionIOTrackProducerBarrel = "ckfInOutTracksFromConversionsBarrel"	
+   string inOutTrackBarrelCollection    = ""
+   string inOutTrackSCBarrelAssociation = "inOutTrackSCBarrelAssociationCollection"
+
+
+
+   string conversionOITrackProducerEndcap = "ckfOutInTracksFromConversionsEndcap"
+   string outInTrackEndcapCollection    = ""
+   string outInTrackSCEndcapAssociation = "outInTrackSCEndcapAssociationCollection"
+
+   string conversionIOTrackProducerEndcap = "ckfInOutTracksFromConversionsEndcap"	
+   string inOutTrackEndcapCollection    = ""
+   string inOutTrackSCEndcapAssociation = "inOutTrackSCEndcapAssociationCollection"
+
+
+
+
+}
