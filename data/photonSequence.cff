@@ -1,22 +1,13 @@
 #
 # sequence to make photons from clusters in ECAL
-# $Id: photonSequence.cff,v 1.6 2008/02/08 17:32:02 nancy Exp $
+# $Id: photonSequence.cff,v 1.7 2008/02/08 18:50:00 nancy Exp $
 #
 # photon producer
 include "RecoEgamma/EgammaPhotonProducers/data/photons.cfi"
 
-# producer for photons after correction
+# producer of photons containing corrections and ConversionRef
 include "RecoEgamma/EgammaPhotonProducers/data/correctedPhotons.cfi"
 
-# conversion tracks producer 
-include "RecoEgamma/EgammaPhotonProducers/data/conversionTracks.cff"
-include "RecoEgamma/EgammaPhotonProducers/data/conversionTracks.cff"
 
-
-#conversion producer
-include "RecoEgamma/EgammaPhotonProducers/data/conversions.cfi"
-include "RecoEgamma/EgammaPhotonProducers/data/conversionSequence.cff"
-
-
-sequence photonSequence = {conversionSequence, photons, correctedPhotons }
+sequence photonSequence = {photons, correctedPhotons }
 
