@@ -24,24 +24,13 @@ module conversions = ConvertedPhotonProducer {
    string convertedPhotonCollection = "conversions"	
 
 
-   string conversionOITrackProducerBarrel = "ckfOutInTracksFromConversionsBarrel"
-   string outInTrackBarrelCollection    = ""
-   string outInTrackSCBarrelAssociation = "outInTrackSCBarrelAssociationCollection"
+   string conversionOITrackProducer = "ckfOutInTracksFromConversions"
+   string outInTrackCollection    = ""
+   string outInTrackSCAssociation = "outInTrackSCAssociationCollection"
 
-   string conversionIOTrackProducerBarrel = "ckfInOutTracksFromConversionsBarrel"	
-   string inOutTrackBarrelCollection    = ""
-   string inOutTrackSCBarrelAssociation = "inOutTrackSCBarrelAssociationCollection"
-
-
-
-   string conversionOITrackProducerEndcap = "ckfOutInTracksFromConversionsEndcap"
-   string outInTrackEndcapCollection    = ""
-   string outInTrackSCEndcapAssociation = "outInTrackSCEndcapAssociationCollection"
-
-   string conversionIOTrackProducerEndcap = "ckfInOutTracksFromConversionsEndcap"	
-   string inOutTrackEndcapCollection    = ""
-   string inOutTrackSCEndcapAssociation = "inOutTrackSCEndcapAssociationCollection"
-
+   string conversionIOTrackProducer = "ckfInOutTracksFromConversions"	
+   string inOutTrackCollection    = ""
+   string inOutTrackSCAssociation = "inOutTrackSCAssociationCollection"
 
 
 
