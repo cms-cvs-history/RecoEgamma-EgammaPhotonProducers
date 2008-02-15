@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.12 2007/11/23 13:58:56 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.13 2008/02/12 14:04:13 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -57,6 +57,7 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
 	
 
     string TrajectoryBuilder    = 	"TrajectoryBuilderForConversions"
+    string MeasurementTrackerName =   ""
 
     bool   outInSeedCleaning  = true
     bool   inOutSeedCleaning  = true
