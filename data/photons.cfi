@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.13 2008/01/20 17:15:02 nancy Exp $
+# $Id: photons.cfi,v 1.14 2008/02/06 17:22:51 nancy Exp $
 #
 module photons = PhotonProducer {
   string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
@@ -24,6 +24,7 @@ module photons = PhotonProducer {
   double hOverEConeSize      = 0.1
   double maxHOverE           = 0.2
   double minSCEt             = 5.
+  double minR9               = 0.93
 
   string pixelSeedProducer   = "electronPixelSeeds"
 
