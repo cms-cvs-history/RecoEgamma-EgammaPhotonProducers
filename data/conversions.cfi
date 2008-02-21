@@ -21,7 +21,7 @@ module conversions = ConvertedPhotonProducer {
    string endcapClusterShapeMapProducer  = "islandBasicClusters"
    string endcapClusterShapeMapCollection = "islandEndcapShapeAssoc"
 
-   string convertedPhotonCollection = "conversions"	
+   string convertedPhotonCollection = ""	
 
 
    string conversionOITrackProducer = "ckfOutInTracksFromConversions"
@@ -32,6 +32,7 @@ module conversions = ConvertedPhotonProducer {
    string inOutTrackCollection    = ""
    string inOutTrackSCAssociation = "inOutTrackSCAssociationCollection"
 
+  
 
 
 }
