@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.13 2008/02/12 14:04:13 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.14 2008/02/15 16:54:54 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -45,28 +45,21 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
 
     string outInTrackCandidateCollection = "outInTracksFromConversions" 
     string inOutTrackCandidateCollection = "inOutTracksFromConversions" 
-#    string outInTrackCandidateEndcapCollection = "outInTracksFromConversionsEndcap" 
-#    string inOutTrackCandidateEndcapCollection = "inOutTracksFromConversionsEndcap" 
-
 
     string outInTrackCandidateSCAssociationCollection = "outInTrackCandidateSCAssociationCollection"
     string inOutTrackCandidateSCAssociationCollection = "inOutTrackCandidateSCAssociationCollection"
-#    string outInTrackCandidateSCEndcapAssociationCollection = "outInTrackCandidateSCEndcapAssociationCollection"
-#    string inOutTrackCandidateSCEndcapAssociationCollection = "inOutTrackCandidateSCEndcapAssociationCollection"
-
-	
 
     string TrajectoryBuilder    = 	"TrajectoryBuilderForConversions"
     string MeasurementTrackerName =   ""
 
-    bool   outInSeedCleaning  = true
-    bool   inOutSeedCleaning  = true
-
     string OutInRedundantSeedCleaner = "CachingSeedCleanerBySharedInput"
     string InOutRedundantSeedCleaner = "CachingSeedCleanerBySharedInput"
 
-	
-    double  smootherChiSquareCut = 100.
+    double hOverEConeSize      = 0.1
+    double maxHOverE           = 0.2
+    double minSCEt             = 5.
+
+
 
     PSet TransientInitialStateEstimatorParameters =
       {
