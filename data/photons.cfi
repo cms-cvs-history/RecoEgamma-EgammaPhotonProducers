@@ -19,6 +19,10 @@ module photons = PhotonProducer {
   string barrelHitCollection = "EcalRecHitsEB"
   string endcapHitCollection = "EcalRecHitsEE"
 
+  string conversionProducer = "conversions"
+  string conversionCollection = "conversions"
+
+
   string hbheModule          = "hbhereco"
   string hbheInstance        = ""
   double hOverEConeSize      = 0.1
