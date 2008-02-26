@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.14 2008/02/06 17:22:51 nancy Exp $
+# $Id: photons.cfi,v 1.16 2008/02/21 18:00:00 nancy Exp $
 #
 module photons = PhotonProducer {
   string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
@@ -20,7 +20,7 @@ module photons = PhotonProducer {
   string endcapHitCollection = "EcalRecHitsEE"
 
   string conversionProducer = "conversions"
-  string conversionCollection = "conversions"
+  string conversionCollection = ""
 
 
   string hbheModule          = "hbhereco"
