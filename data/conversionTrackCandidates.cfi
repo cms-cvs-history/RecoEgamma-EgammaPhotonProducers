@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.14 2008/02/15 16:54:54 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.15 2008/02/21 00:22:44 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -55,6 +55,8 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
     string OutInRedundantSeedCleaner = "CachingSeedCleanerBySharedInput"
     string InOutRedundantSeedCleaner = "CachingSeedCleanerBySharedInput"
 
+    string hbheModule          = "hbhereco"
+    string hbheInstance        = ""
     double hOverEConeSize      = 0.1
     double maxHOverE           = 0.2
     double minSCEt             = 5.
