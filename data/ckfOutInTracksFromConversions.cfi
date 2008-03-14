@@ -20,6 +20,9 @@ module ckfOutInTracksFromConversions = TrackProducerWithSCAssociation
   string TTRHBuilder       =   "WithTrackAngle"
   bool TrajectoryInEvent = false
   bool useHitsSplitting = false
+  #string AlgorithmName = "ecalSeededConv"
+  string AlgorithmName = "undefAlgorithm"
+ 
 }
 
 
