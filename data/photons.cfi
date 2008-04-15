@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.16 2008/02/21 18:00:00 nancy Exp $
+# $Id: photons.cfi,v 1.17 2008/02/26 11:22:29 nancy Exp $
 #
 module photons = PhotonProducer {
   string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
@@ -26,7 +26,7 @@ module photons = PhotonProducer {
   string hbheModule          = "hbhereco"
   string hbheInstance        = ""
   double hOverEConeSize      = 0.1
-  double maxHOverE           = 0.2
+  double maxHOverE           = 1.
   double minSCEt             = 5.
   double minR9               = 0.93
 
