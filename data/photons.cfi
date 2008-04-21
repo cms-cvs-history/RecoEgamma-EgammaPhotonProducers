@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.17 2008/02/26 11:22:29 nancy Exp $
+# $Id: photons.cfi,v 1.18 2008/04/15 14:37:47 nancy Exp $
 #
 module photons = PhotonProducer {
   string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
@@ -9,10 +9,6 @@ module photons = PhotonProducer {
   string scIslandEndcapProducer   =          "correctedEndcapSuperClustersWithPreshower"
   string scIslandEndcapCollection       =    ""
 
-  string barrelClusterShapeMapProducer  = "hybridSuperClusters"
-  string barrelClusterShapeMapCollection = "hybridShapeAssoc"
-  string endcapClusterShapeMapProducer  = "islandBasicClusters"
-  string endcapClusterShapeMapCollection = "islandEndcapShapeAssoc"
 
   string barrelHitProducer   = "ecalRecHit"
   string endcapHitProducer   = "ecalRecHit"
