@@ -32,15 +32,27 @@ include "RecoEgamma/EgammaPhotonProducers/data/trajectoryBuilderForConversions.c
 
 module conversionTrackCandidates = ConversionTrackCandidateProducer {
 
-    string  bcProducer  =        "islandBasicClusters"
-    string  bcBarrelCollection = "islandBarrelBasicClusters"
-    string  bcEndcapCollection = "islandEndcapBasicClusters"
+     string  bcProducer  =   "multi5x5BasicClusters"
+    string  bcBarrelCollection = "multi5x5BarrelBasicClusters"
+    string  bcEndcapCollection = "multi5x5EndcapBasicClusters"
+
+
+## Old island
+#    string  bcProducer  =        "islandBasicClusters"
+#    string  bcBarrelCollection = "islandBarrelBasicClusters"
+#    string  bcEndcapCollection = "islandEndcapBasicClusters"
 
     string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
     string scHybridBarrelCollection =     ""
 
-    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
+
+    string scIslandEndcapProducer   =     ""multi5x5SuperClustersWithPreshower"
     string scIslandEndcapCollection =     ""
+
+
+# old endcap clustering
+#    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
+#    string scIslandEndcapCollection =     ""
 
 
     string outInTrackCandidateCollection = "outInTracksFromConversions" 
@@ -58,7 +70,7 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
     string hbheModule          = "hbhereco"
     string hbheInstance        = ""
     double hOverEConeSize      = 0.1
-    double maxHOverE           = 1.
+    double maxHOverE           = 0.2
     double minSCEt             = 5.
 
 

@@ -6,20 +6,24 @@
 module conversions = ConvertedPhotonProducer {
 
 
-    string  bcProducer  =   "islandBasicClusters"
-    string  bcBarrelCollection = "islandBarrelBasicClusters"
-    string  bcEndcapCollection = "islandEndcapBasicClusters"
+    string  bcProducer  =   "multi5x5BasicClusters"
+    string  bcBarrelCollection = "multi5x5BarrelBasicClusters"
+    string  bcEndcapCollection = "multi5x5EndcapBasicClusters"
+
+#    string  bcProducer  =   "islandBasicClusters"
+#    string  bcBarrelCollection = "islandBarrelBasicClusters"
+#    string  bcEndcapCollection = "islandEndcapBasicClusters"
 
     string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
     string scHybridBarrelCollection =     ""
 
-    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
+    string scIslandEndcapProducer   =     ""multi5x5SuperClustersWithPreshower"
     string scIslandEndcapCollection =     ""
 
-   string barrelClusterShapeMapProducer  = "hybridSuperClusters"
-   string barrelClusterShapeMapCollection = "hybridShapeAssoc"
-   string endcapClusterShapeMapProducer  = "islandBasicClusters"
-   string endcapClusterShapeMapCollection = "islandEndcapShapeAssoc"
+#    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
+#    string scIslandEndcapCollection =     ""
+
+
 
    string convertedPhotonCollection = ""	
 

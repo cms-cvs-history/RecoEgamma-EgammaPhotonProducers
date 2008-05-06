@@ -1,14 +1,19 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.18 2008/04/15 14:37:47 nancy Exp $
+# $Id: photons.cfi,v 1.17 2008/02/26 11:22:29 nancy Exp $
 #
 module photons = PhotonProducer {
-  string scHybridBarrelProducer   =          "correctedHybridSuperClusters"
-  string scHybridBarrelCollection       =     ""
 
-  string scIslandEndcapProducer   =          "correctedEndcapSuperClustersWithPreshower"
-  string scIslandEndcapCollection       =    ""
+    string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
+    string scHybridBarrelCollection =     ""
 
+    string scIslandEndcapProducer   =     ""multi5x5SuperClustersWithPreshower"
+    string scIslandEndcapCollection =     ""
+
+
+## Old endcap clustering
+#    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
+#    string scIslandEndcapCollection =     ""
 
   string barrelHitProducer   = "ecalRecHit"
   string endcapHitProducer   = "ecalRecHit"
@@ -18,11 +23,10 @@ module photons = PhotonProducer {
   string conversionProducer = "conversions"
   string conversionCollection = ""
 
-
   string hbheModule          = "hbhereco"
   string hbheInstance        = ""
   double hOverEConeSize      = 0.1
-  double maxHOverE           = 1.
+  double maxHOverE           = 0.2
   double minSCEt             = 5.
   double minR9               = 0.93
 
