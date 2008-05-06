@@ -17,7 +17,7 @@ module conversions = ConvertedPhotonProducer {
     string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
     string scHybridBarrelCollection =     ""
 
-    string scIslandEndcapProducer   =     ""multi5x5SuperClustersWithPreshower"
+    string scIslandEndcapProducer   =     "multi5x5SuperClustersWithPreshower"
     string scIslandEndcapCollection =     ""
 
 #    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"

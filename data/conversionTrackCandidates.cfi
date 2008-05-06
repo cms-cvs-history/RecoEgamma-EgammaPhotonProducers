@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.16 2008/03/11 18:32:17 nancy Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.18 2008/05/06 12:41:59 nancy Exp $
 #
 
 ############### Tracker geometry #####################
@@ -46,7 +46,7 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
     string scHybridBarrelCollection =     ""
 
 
-    string scIslandEndcapProducer   =     ""multi5x5SuperClustersWithPreshower"
+    string scIslandEndcapProducer   =     "multi5x5SuperClustersWithPreshower"
     string scIslandEndcapCollection =     ""
 
 
