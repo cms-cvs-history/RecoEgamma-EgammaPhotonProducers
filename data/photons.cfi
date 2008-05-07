@@ -1,24 +1,22 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.21 2008/05/06 12:45:09 nancy Exp $
+# $Id: photons.cfi,v 1.22 2008/05/06 19:22:43 nancy Exp $
 #
 module photons = PhotonProducer {
 
-    string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
-    string scHybridBarrelCollection =     ""
-
-    string scIslandEndcapProducer   =     "multi5x5SuperClustersWithPreshower"
-    string scIslandEndcapCollection =     ""
+    InputTag scHybridBarrelProducer   =     "correctedHybridSuperClusters"
+    InputTag scIslandEndcapProducer   =     "multi5x5SuperClustersWithPreshower"
 
 
 ## Old endcap clustering
 #    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
 #    string scIslandEndcapCollection =     ""
 
-  string barrelHitProducer   = "ecalRecHit"
-  string endcapHitProducer   = "ecalRecHit"
-  string barrelHitCollection = "EcalRecHitsEB"
-  string endcapHitCollection = "EcalRecHitsEE"
+
+  InputTag barrelEcalHits = ecalRecHit:EcalRecHitsEB
+  InputTag endcapEcalHits = ecalRecHit:EcalRecHitsEE
+
+
 
   string conversionProducer = "conversions"
   string conversionCollection = ""
