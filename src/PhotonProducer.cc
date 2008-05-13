@@ -339,7 +339,8 @@ reco::ConversionRef  PhotonProducer::solveAmbiguity(const edm::Handle<reco::Conv
     //  std::cout << " PhotonProducer conversion SC energy " << (*itCP).superCluster()->energy() << std::endl;
     
     double like = theLikelihoodCalc_->calculateLikelihood(cpRef);
-    std::cout << " Like " << like << std::endl;
+    // another annoying cout that should not be in production. ShR 13 May 08
+    //std::cout << " Like " << like << std::endl;
     convMap.insert ( std::make_pair(cpRef,like) ) ;
   }		     
   
