@@ -1,11 +1,11 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.23 2008/05/07 03:46:44 nancy Exp $
+# $Id: photons.cfi,v 1.24 2008/05/08 19:52:04 nancy Exp $
 #
 module photons = PhotonProducer {
 
     InputTag scHybridBarrelProducer   =     "correctedHybridSuperClusters"
-    InputTag scIslandEndcapProducer   =     "fixedMatrixSuperClustersWithPreshower"
+    InputTag scIslandEndcapProducer   =     "multi5x5SuperClustersWithPreshower"
 
 
 ## Old endcap clustering
