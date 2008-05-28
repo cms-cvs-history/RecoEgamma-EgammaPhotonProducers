@@ -6,7 +6,7 @@ include "RecoEgamma/EgammaPhotonProducers/data/KFFittingSmootherForInOut.cfi"
 
 
 
-module softConversionIOTracks = TrackProducerWithBCAssociation
+module softConversionIOTracks = TrackProducerWithSCAssociation
 {
   string ComponentName = "softConversionIOTracks"
   string Fitter = "KFFittingSmootherForInOut"
