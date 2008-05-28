@@ -1,0 +1,24 @@
+#
+#  configuration for producer of converted photons
+#  
+#
+
+module softConversions = SoftConversionProducer {
+
+   string clusterType             = "BasicCluster"
+   string clusterProducer         = "islandBasicClusters"
+   string clusterBarrelCollection = "islandBarrelBasicClusters"
+   string clusterEndcapCollection = "islandEndcapBasicClusters"
+
+
+   string conversionOITrackProducer              = "softConversionOITracks"
+   string outInTrackCollection                   = ""
+   string outInTrackClusterAssociationCollection = "outInTrackClusterAssociationCollection"
+
+   string conversionIOTrackProducer              = "softConversionIOTracks"	
+   string inOutTrackCollection                   = ""
+   string inOutTrackClusterAssociationCollection = "inOutTrackClusterAssociationCollection"
+
+   string softConversionCollection = "softConversionCollection"	
+
+}

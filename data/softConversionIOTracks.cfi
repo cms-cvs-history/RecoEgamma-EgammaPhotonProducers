@@ -1,0 +1,26 @@
+# KFUpdatoerESProducer
+include "TrackingTools/KalmanUpdators/data/KFUpdatorESProducer.cfi"
+
+include "RecoEgamma/EgammaPhotonProducers/data/propAlongMomentumWithMaterialForElectrons.cfi"
+include "RecoEgamma/EgammaPhotonProducers/data/KFFittingSmootherForInOut.cfi"
+
+
+
+module softConversionIOTracks = TrackProducerWithBCAssociation
+{
+  string ComponentName = "softConversionIOTracks"
+  string Fitter = "KFFittingSmootherForInOut"
+  #string Propagator = "PropagatorWithMaterial"
+  string Propagator = "alongMomElePropagator"
+  InputTag src = softConversionTrackCandidates:softIOTrackCandidates
+  string trackCandidateSCAssociationCollection = "inOutTrackCandidateClusterAssociationCollection"
+  string recoTrackSCAssociationCollection = "inOutTrackClusterAssociationCollection"
+  InputTag beamSpot = offlineBeamSpot
+  string producer = "softConversionTrackCandidates"
+  string TTRHBuilder       =   "WithTrackAngle"
+  bool TrajectoryInEvent = false
+  bool useHitsSplitting = false
+  #string AlgorithmName = "ecalSeededConv"
+  string AlgorithmName = "undefAlgorithm"
+}
+
