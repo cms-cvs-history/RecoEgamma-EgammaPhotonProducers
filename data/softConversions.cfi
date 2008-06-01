@@ -20,5 +20,9 @@ module softConversions = SoftConversionProducer {
    string inOutTrackClusterAssociationCollection = "inOutTrackClusterAssociationCollection"
 
    string softConversionCollection = "softConversionCollection"	
+   double trackMaxChi2 = 100.0
+   double trackMinHits = 3
+   double clustersMaxDeltaEta = 0.2
+   double clustersMaxDeltaPhi = 0.5
 
 }
