@@ -1,11 +1,11 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.24 2008/05/08 19:52:04 nancy Exp $
+# $Id: photons.cfi,v 1.26 2008/05/30 12:52:31 rahatlou Exp $
 #
 module photons = PhotonProducer {
 
     InputTag scHybridBarrelProducer   =     "correctedHybridSuperClusters"
-    InputTag scIslandEndcapProducer   =     "multi5x5SuperClustersWithPreshower"
+    InputTag scIslandEndcapProducer   =     "correctedMulti5x5SuperClustersWithPreshower"
 
 
 ## Old endcap clustering
@@ -36,7 +36,7 @@ module photons = PhotonProducer {
   double posCalc_t0_endcPresh = 3.6
   double posCalc_w0 = 4.2
   double posCalc_x0 = 0.89
-  string primaryVertexProducer  =          "offlinePrimaryVerticesFromCTFTracks"
+  string primaryVertexProducer  =          "offlinePrimaryVerticesWithBS"
   string photonCollection =  ""
   bool usePrimaryVertex = true
   bool risolveConversionAmbiguity = true
