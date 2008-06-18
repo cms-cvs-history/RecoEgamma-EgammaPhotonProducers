@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.26 2008/05/30 12:52:31 rahatlou Exp $
+# $Id: photons.cfi,v 1.27 2008/06/02 21:33:28 nancy Exp $
 #
 module photons = PhotonProducer {
 
@@ -24,8 +24,8 @@ module photons = PhotonProducer {
   string hbheModule          = "hbhereco"
   string hbheInstance        = ""
   double hOverEConeSize      = 0.1
-  double maxHOverE           = 0.2
-  double minSCEt             = 5.
+  double maxHOverE           = 999.
+  double minSCEt             = 10.
   double minR9               = 0.93
 
   string pixelSeedProducer   = "electronPixelSeeds"
