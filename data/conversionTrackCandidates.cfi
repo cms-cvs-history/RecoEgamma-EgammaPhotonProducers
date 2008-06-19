@@ -1,6 +1,6 @@
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.24 2008/05/29 14:59:06 arizzi Exp $
+#  $Id: conversionTrackCandidates.cfi,v 1.25 2008/05/29 15:29:33 arizzi Exp $
 #
 
 ############### Tracker geometry #####################
@@ -32,17 +32,8 @@ include "RecoEgamma/EgammaPhotonProducers/data/trajectoryBuilderForConversions.c
 
 module conversionTrackCandidates = ConversionTrackCandidateProducer {
 
-#     string  bcProducer  =   "multi5x5BasicClusters"
-#     string  bcBarrelCollection = "multi5x5BarrelBasicClusters"
-#     string  bcEndcapCollection = "multi5x5EndcapBasicClusters"
-
     InputTag  bcBarrelCollection = hybridSuperClusters:hybridBarrelBasicClusters
     InputTag bcEndcapCollection  = multi5x5BasicClusters:multi5x5EndcapBasicClusters
-
-
-#    string  bcProducer  =        "islandBasicClusters"
-#    string  bcBarrelCollection = "islandBarrelBasicClusters"
-#    string  bcEndcapCollection = "islandEndcapBasicClusters"
 
     string scHybridBarrelProducer   =     "correctedHybridSuperClusters"
     string scHybridBarrelCollection =     ""
@@ -50,12 +41,6 @@ module conversionTrackCandidates = ConversionTrackCandidateProducer {
 
     string scIslandEndcapProducer   =     "correctedMulti5x5SuperClustersWithPreshower"
     string scIslandEndcapCollection =     ""
-
-
-# old endcap clustering
-#    string scIslandEndcapProducer   =     "correctedEndcapSuperClustersWithPreshower"
-#    string scIslandEndcapCollection =     ""
-
 
     string outInTrackCandidateCollection = "outInTracksFromConversions" 
     string inOutTrackCandidateCollection = "inOutTracksFromConversions" 
