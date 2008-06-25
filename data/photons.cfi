@@ -1,6 +1,6 @@
 #
 # producer for photons
-# $Id: photons.cfi,v 1.28 2008/06/18 10:57:10 nancy Exp $
+# $Id: photons.cfi,v 1.29 2008/06/19 18:11:43 nancy Exp $
 #
 module photons = PhotonProducer {
 
@@ -36,7 +36,20 @@ module photons = PhotonProducer {
   bool usePrimaryVertex = true
   bool risolveConversionAmbiguity = true
   string MVA_weights_location = "RecoEgamma/EgammaTools/data/TMVAnalysis_Likelihood.weights.txt" 
-
+  double minEtRecHitBarrel = 0.
+  double ecalIsolInnRBarrel = 0.045
+  double ecalIsolExtRBarrel = 0.4
+  double ecalIsolEtaStripBarrel = 0.02
+#  double isolEtCutBarrel = 12.
+  double isolEtCutBarrel = 99999.
+  double minEtRecHitEndcap = 0.
+  double ecalIsolInnREndcap = 0.07
+  double ecalIsolExtREndcap = 0.4
+  double ecalIsolEtaStripEndcap = 0.02
+#  double isolEtCutEndcap = 9.
+  double isolEtCutEndcap = 99999.
+                          
+ 
 
 
 }
