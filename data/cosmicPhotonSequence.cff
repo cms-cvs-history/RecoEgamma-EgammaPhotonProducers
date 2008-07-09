@@ -37,3 +37,4 @@ replace photons.usePrimaryVertex = false
 replace photons.minSCEt = 0.0
 
 sequence cosmicPhotonSequence = { conversionSequence, photonSequence }
+sequence cosmicPhotonSequence_woConv = { photonSequence }
