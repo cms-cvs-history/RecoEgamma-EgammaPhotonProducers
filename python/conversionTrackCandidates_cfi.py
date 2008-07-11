@@ -2,11 +2,9 @@ import FWCore.ParameterSet.Config as cms
 
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates.cfi,v 1.25 2008/05/29 15:29:33 arizzi Exp $
+#  $Id: conversionTrackCandidates_cfi.py,v 1.9 2008/05/30 16:26:19 rpw Exp $
 #
 # Tracker geometry #####################
-from Geometry.TrackerGeometryBuilder.trackerGeometry_cfi import *
-from Geometry.TrackerNumberingBuilder.trackerNumberingGeometry_cfi import *
 from RecoTracker.GeometryESProducer.TrackerRecoGeometryESProducer_cfi import *
 # stripCPE
 from RecoLocalTracker.SiStripRecHitConverter.StripCPEfromTrackAngle_cfi import *
