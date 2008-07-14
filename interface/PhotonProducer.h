@@ -3,9 +3,9 @@
 /** \class PhotonProducer
  **  
  **
- **  $Id: PhotonProducer.h,v 1.21 2008/06/19 18:18:49 nancy Exp $ 
- **  $Date: 2008/06/19 18:18:49 $ 
- **  $Revision: 1.21 $
+ **  $Id: PhotonProducer.h,v 1.19 2008/05/06 19:24:19 nancy Exp $ 
+ **  $Date: 2008/05/06 19:24:19 $ 
+ **  $Revision: 1.19 $
  **  \author Nancy Marinelli, U. of Notre Dame, US
  **
  ***/
@@ -50,7 +50,6 @@ class PhotonProducer : public edm::EDProducer {
                             const CaloTopology *topology,
 			    const EcalRecHitCollection *hits,
 			    HBHERecHitMetaCollection *mhbhe,
-                            std::vector<double> paramsForIsolation,
 			    const edm::Handle<reco::ConversionCollection> & conversionHandle,
 			    const reco::ElectronPixelSeedCollection& pixelSeeds,
 			    math::XYZPoint & vtx,
@@ -87,10 +86,6 @@ class PhotonProducer : public edm::EDProducer {
   bool usePrimaryVertex_;
   bool risolveAmbiguity_;
   edm::ParameterSet conf_;
-
-  
-  std::vector<double> paramForIsolBarrel_; 
-  std::vector<double> paramForIsolEndcap_; 
 
   PositionCalc posCalculator_;
   std::string likelihoodWeights_;
