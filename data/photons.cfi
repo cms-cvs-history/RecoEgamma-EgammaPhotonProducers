@@ -25,7 +25,7 @@ module photons = PhotonProducer {
   string hbheInstance        = ""
   double hOverEConeSize      = 0.1
   double maxHOverE           = 999.
-  double minSCEt             = 5.
+  double minSCEt             = 10.
   double minR9               = 0.93
 
   string pixelSeedProducer   = "electronPixelSeeds"
