@@ -3,9 +3,9 @@
 /** \class SoftConversionProducer
  **  
  **
- **  $Id: SoftConversionProducer.h,v 1.3 2008/05/31 04:32:58 dwjang Exp $ 
- **  $Date: 2008/05/31 04:32:58 $ 
- **  $Revision: 1.3 $
+ **  $Id: SoftConversionProducer.h,v 1.5 2008/07/14 13:02:15 nancy Exp $ 
+ **  $Date: 2008/07/14 13:02:15 $ 
+ **  $Revision: 1.5 $
  **  \author Dongwook Jang, Carnegie Mellon University
  **  Modified version of ConvertedPhotonProducer
  ***/
@@ -38,6 +38,8 @@ class SoftConversionProducer : public edm::EDProducer {
   virtual void endJob ();
   virtual void produce(edm::Event& evt, const edm::EventSetup& es);
   bool trackQualityCut(const reco::TrackRef& trk);
+  bool NotAlreadyIn(const reco::Conversion& thisConv,
+		    const std::auto_ptr<reco::ConversionCollection>& outputColl) const;
 
  private:
 
@@ -48,9 +50,8 @@ class SoftConversionProducer : public edm::EDProducer {
   std::string inOutTrackClusterAssociationCollection_;
 
   std::string clusterType_;
-  std::string clusterProducer_;
-  std::string clusterBarrelCollection_;
-  std::string clusterEndcapCollection_;
+  edm::InputTag clusterBarrelCollection_;
+  edm::InputTag clusterEndcapCollection_;
 
   std::string softConversionCollection_;
   double trackMaxChi2_;
