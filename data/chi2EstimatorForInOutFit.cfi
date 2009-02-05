@@ -1,6 +1,0 @@
-es_module Chi2MeasurementEstimatorForInOut  = Chi2MeasurementEstimator from "TrackingTools/KalmanUpdators/data/Chi2MeasurementEstimatorESProducer.cfi"
-replace   Chi2MeasurementEstimatorForInOut.ComponentName = "Chi2ForInOut"
-replace   Chi2MeasurementEstimatorForInOut.MaxChi2 = 100.
-replace   Chi2MeasurementEstimatorForInOut.nSigma = 3.
-
-
