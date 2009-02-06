@@ -20,7 +20,7 @@
 #include "DataFormats/EgammaCandidates/interface/Conversion.h"
 #include "RecoEgamma/PhotonIdentification/interface/CutBasedPhotonID.h"
 
-#include "DataFormats/EgammaReco/interface/ElectronPixelSeed.h"
+#include "DataFormats/EgammaReco/interface/ElectronSeed.h"
 #include "RecoCaloTools/Selectors/interface/CaloConeSelector.h"
 #include "RecoEgamma/EgammaPhotonProducers/interface/PhotonProducer.h"
 #include "RecoEgamma/EgammaIsolationAlgos/interface/EgammaTowerIsolation.h"
@@ -74,6 +74,7 @@ PhotonProducer::PhotonProducer(const edm::ParameterSet& config) :
   preselCutValuesBarrel_.push_back(conf_.getParameter<double>("nTrackHollowConeBarrel"));     
   preselCutValuesBarrel_.push_back(conf_.getParameter<double>("trackPtSumSolidConeBarrel"));     
   preselCutValuesBarrel_.push_back(conf_.getParameter<double>("trackPtSumHollowConeBarrel"));     
+  preselCutValuesBarrel_.push_back(conf_.getParameter<double>("sigmaIetaIetaCutBarrel"));     
   //  
   preselCutValuesEndcap_.push_back(conf_.getParameter<double>("ecalRecHitSumEndcap")); 
   preselCutValuesEndcap_.push_back(conf_.getParameter<double>("hcalTowerSumEndcap"));
@@ -81,6 +82,7 @@ PhotonProducer::PhotonProducer(const edm::ParameterSet& config) :
   preselCutValuesEndcap_.push_back(conf_.getParameter<double>("nTrackHollowConeEndcap"));     
   preselCutValuesEndcap_.push_back(conf_.getParameter<double>("trackPtSumSolidConeEndcap"));     
   preselCutValuesEndcap_.push_back(conf_.getParameter<double>("trackPtSumHollowConeEndcap"));     
+  preselCutValuesEndcap_.push_back(conf_.getParameter<double>("sigmaIetaIetaCutEndcap"));     
   //
   thePhotonIsolationCalculator_ = new PhotonIsolationCalculator();
   edm::ParameterSet isolationSumsCalculatorSet = conf_.getParameter<edm::ParameterSet>("isolationSumsCalculatorSet"); 
@@ -125,7 +127,7 @@ void PhotonProducer::produce(edm::Event& theEvent, const edm::EventSetup& theEve
   theEvent.getByLabel(scHybridBarrelProducer_,scBarrelHandle);
   if (!scBarrelHandle.isValid()) {
     edm::LogError("PhotonProducer") << "Error! Can't get the product "<<scHybridBarrelProducer_.label();
-    bool validBarrelSCHandle=false;
+    validBarrelSCHandle=false;
   }
 
 
@@ -193,8 +195,8 @@ void PhotonProducer::produce(edm::Event& theEvent, const edm::EventSetup& theEve
 
   // Get ElectronPixelSeeds
   validPixelSeeds_=true;
-  Handle<reco::ElectronPixelSeedCollection> pixelSeedHandle;
-  reco::ElectronPixelSeedCollection pixelSeeds;
+  Handle<reco::ElectronSeedCollection> pixelSeedHandle;
+  reco::ElectronSeedCollection pixelSeeds;
   theEvent.getByLabel(pixelSeedProducer_, pixelSeedHandle);
   if (!pixelSeedHandle.isValid()) {
     //if ( nEvt_%100==0 ) std::cout << " PhotonProducer Can't get the product ElectronPixelSeedHandle but Photons will be produced anyway with pixel seed flag set to false "<< "\n";
@@ -272,12 +274,12 @@ void PhotonProducer::fillPhotonCollection(edm::Event& evt,
 					  const edm::Handle<CaloTowerCollection> & hcalTowersHandle, 
 					  std::vector<double> preselCutValues,
 					  const edm::Handle<reco::ConversionCollection> & conversionHandle,
-					  const reco::ElectronPixelSeedCollection& pixelSeeds,
+					  const reco::ElectronSeedCollection& pixelSeeds,
 					  math::XYZPoint & vtx,
 					  reco::PhotonCollection & outputPhotonCollection, int& iSC) {
   
 
-  reco::ElectronPixelSeedCollection::const_iterator pixelSeedItr;
+  reco::ElectronSeedCollection::const_iterator pixelSeedItr;
   for(unsigned int lSC=0; lSC < scHandle->size(); lSC++) {
     
     // get SuperClusterRef
@@ -300,7 +302,7 @@ void PhotonProducer::fillPhotonCollection(edm::Event& evt,
 
     
     // recalculate position of seed BasicCluster taking shower depth for unconverted photon
-    math::XYZPoint unconvPos = posCalculator_.Calculate_Location(scRef->seed()->getHitsByDetId(),hits,subDetGeometry,geometryES);
+    math::XYZPoint unconvPos = posCalculator_.Calculate_Location(scRef->seed()->hitsAndFractions(),hits,subDetGeometry,geometryES);
 
     static std::pair<DetId, float> maxXtal = EcalClusterTools::getMaximum (*(scRef->seed()), &(*hits) );
     float e1x5    =   EcalClusterTools::e1x5(  *(scRef->seed()), &(*hits), &(*topology)); 
@@ -329,8 +331,8 @@ void PhotonProducer::fillPhotonCollection(edm::Event& evt,
     bool hasSeed = false;
     if ( validPixelSeeds_) {
       for(pixelSeedItr = pixelSeeds.begin(); pixelSeedItr != pixelSeeds.end(); pixelSeedItr++) {
-	if (fabs(pixelSeedItr->superCluster()->eta() - scRef->eta()) < 0.0001 &&
-	    fabs(pixelSeedItr->superCluster()->phi() - scRef->phi()) < 0.0001) {
+	if (fabs(pixelSeedItr->caloCluster()->eta() - scRef->eta()) < 0.0001 &&
+	    fabs(pixelSeedItr->caloCluster()->phi() - scRef->phi()) < 0.0001) {
 	  hasSeed=true;
 	  break;
 	}
@@ -382,7 +384,8 @@ void PhotonProducer::fillPhotonCollection(edm::Event& evt,
     //    std::cout << " Photon Et " <<  newCandidate.pt() << std::endl;
     if ( newCandidate.pt() < highEt_) { 
       //std::cout << " This photon Et is below " << highEt_ << " so I apply pre-selection ID cuts " << std::endl;
-      //      std::cout << " PhotonProducer Hoe1 " << newCandidate.hadronicDepth1OverEm() << "  HoE2 " <<  newCandidate.hadronicDepth2OverEm() << " tot " <<  newCandidate.hadronicOverEm() << std::endl;
+      // std::cout << " PhotonProducer Hoe1 " << newCandidate.hadronicDepth1OverEm() << "  HoE2 " <<  newCandidate.hadronicDepth2OverEm() << " tot " <<  newCandidate.hadronicOverEm() << std::endl;
+      //     std::cout << "  PhotonProducer checking sigmaIetaIeta " << newCandidate.sigmaIetaIeta() << std::endl;
       if ( newCandidate.hadronicOverEm()                >= maxHOverE_ )              isLooseEM=false;
       if ( newCandidate.ecalRecHitSumConeDR04()          > preselCutValues[0] )      isLooseEM=false;
       if ( newCandidate.hcalTowerSumConeDR04()           > preselCutValues[1] )      isLooseEM=false;
@@ -390,6 +393,7 @@ void PhotonProducer::fillPhotonCollection(edm::Event& evt,
       if ( newCandidate.nTrkHollowConeDR04()             > int(preselCutValues[3]) ) isLooseEM=false;
       if ( newCandidate.isolationTrkSolidConeDR04()      > preselCutValues[4] )      isLooseEM=false;
       if ( newCandidate.isolationTrkHollowConeDR04()     > preselCutValues[5] )      isLooseEM=false;
+      if ( newCandidate.sigmaIetaIeta()                  > preselCutValues[6] )      isLooseEM=false;
     } 
 
 
