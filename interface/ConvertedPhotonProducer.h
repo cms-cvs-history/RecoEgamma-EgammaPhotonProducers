@@ -3,9 +3,9 @@
 /** \class ConvertedPhotonProducer
  **  
  **
- **  $Id: ConvertedPhotonProducer.h,v 1.20 2008/08/15 12:46:52 nancy Exp $ 
- **  $Date: 2008/08/15 12:46:52 $ 
- **  $Revision: 1.20 $
+ **  $Id: ConvertedPhotonProducer.h,v 1.21 2008/08/21 09:04:04 nancy Exp $ 
+ **  $Date: 2008/08/21 09:04:04 $ 
+ **  $Revision: 1.21 $
  **  \author Nancy Marinelli, U. of Notre Dame, US
  **
  ***/
@@ -40,6 +40,7 @@ class ConvertedPhotonProducer : public edm::EDProducer {
 
   //  virtual void beginJob (edm::EventSetup const & es);
   virtual void beginRun (edm::Run& r, edm::EventSetup const & es);
+  virtual void endRun (edm::Run& r, edm::EventSetup const & es);
   virtual void endJob ();
   virtual void produce(edm::Event& evt, const edm::EventSetup& es);
 
