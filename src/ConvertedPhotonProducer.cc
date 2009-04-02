@@ -103,33 +103,26 @@ ConvertedPhotonProducer::~ConvertedPhotonProducer() {
   
   delete theTrackPairFinder_;
   delete theVertexFinder_;
+
+
+}
+
+void  ConvertedPhotonProducer::endRun (edm::Run& r, edm::EventSetup const & theEventSetup) {
   delete theEcalImpactPositionFinder_; 
 
 }
 
 
-
-
-//void  ConvertedPhotonProducer::beginJob (edm::EventSetup const & theEventSetup) {
-  
-
-//  // instantiate the algorithm for finding the position of the track extrapolation at the Ecal front face
-//  theEcalImpactPositionFinder_ = new   ConversionTrackEcalImpactPoint ( &(*theMF_) );
-  
-//}
-
 void  ConvertedPhotonProducer::beginRun (edm::Run& r, edm::EventSetup const & theEventSetup) {
  
 
-    //get magnetic field
+  //get magnetic field
   edm::LogInfo("ConvertedPhotonProducer") << " get magnetic field" << "\n";
   theEventSetup.get<IdealMagneticFieldRecord>().get(theMF_);  
-
-  if ( ! theEcalImpactPositionFinder_) {
-    
-     // instantiate the algorithm for finding the position of the track extrapolation at the Ecal front face
-    theEcalImpactPositionFinder_ = new   ConversionTrackEcalImpactPoint ( &(*theMF_) );
-  }  
+  
+  // instantiate the algorithm for finding the position of the track extrapolation at the Ecal front face
+  theEcalImpactPositionFinder_ = new   ConversionTrackEcalImpactPoint ( &(*theMF_) );
+  
 
 }
 
@@ -266,8 +259,6 @@ void ConvertedPhotonProducer::produce(edm::Event& theEvent, const edm::EventSetu
   // put the product in the event
   outputConvPhotonCollection_p->assign(outputConvPhotonCollection.begin(),outputConvPhotonCollection.end());
   LogDebug("ConvertedPhotonProducer") << " ConvertedPhotonProducer Putting in the event    converted photon candidates " << (*outputConvPhotonCollection_p).size() << "\n";  
-
-
   theEvent.put( outputConvPhotonCollection_p, ConvertedPhotonCollection_);
 
 
@@ -336,7 +327,6 @@ void ConvertedPhotonProducer::buildCollections (  const edm::Handle<edm::View<re
 	}
 	
 
-        
 	std::vector<math::XYZPoint> trkPositionAtEcal = theEcalImpactPositionFinder_->find(  iPair->first, bcHandle );
 	std::vector<reco::CaloClusterPtr>  matchingBC = theEcalImpactPositionFinder_->matchingBC();
 	
