@@ -4,8 +4,8 @@
  **
  **
  **  $Id:
- **  $Date: 2010/02/15 17:45:50 $
- **  $Revision: 1.10 $
+ **  $Date: 2010/01/11 18:47:14 $
+ **  $Revision: 1.7 $
  **  \author H. Liu, UC of Riverside US
  **
  ***/
@@ -139,7 +139,7 @@ class TrackerOnlyConversionProducer : public edm::EDProducer {
       edm::InputTag bcEndcapCollection_;
       std::string ConvertedPhotonCollection_;
 
-      bool allowD0_, allowDeltaPhi_, allowTrackBC_, allowDeltaCot_, allowMinApproach_, allowOppCharge_, allowVertex_;
+      bool allowD0_, allowTrackBC_, allowDeltaCot_, allowMinApproach_, allowOppCharge_, allowVertex_;
 
       bool usePvtx_;//if use primary vertices
       std::string vertexProducer_;
@@ -178,5 +178,15 @@ inline const BoundPlane & recHitSurface( const TrackingRecHit & hit, const Track
 inline LocalVector toLocal( const reco::Track::Vector & v, const Surface & s ) {
     return s.toLocal( GlobalVector( v.x(), v.y(), v.z() ) );
 }
+
+inline double map_phi2(double phi) {
+    // map phi to [-pi,pi]
+    double result = phi;
+    if ( result < 1.0*Geom::pi() ) result = result + Geom::twoPi();
+    if ( result >= Geom::pi())  result = result - Geom::twoPi();
+    return result;
+}
+
+
 
 #endif
