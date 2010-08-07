@@ -382,12 +382,12 @@ void ConvertedPhotonProducer::buildCollections ( edm::EventSetup const & es,
 	
 
         minAppDist=-99;
-	const string metname = "ConvertedPhotons|ConvertedPhotonProducer";
+	const std::string metname = "ConvertedPhotons|ConvertedPhotonProducer";
 	if ( (iPair->first).size()  > 1 ) {
 	  try{
 	    
-	    TransientVertex trVtx=theVertexFinder_->run(iPair->first); 
-	    theConversionVertex= trVtx;
+	    theVertexFinder_->run(iPair->first, theConversionVertex ); 
+	    
 	    
 	  }
 	  catch ( cms::Exception& e ) {
@@ -525,9 +525,7 @@ void ConvertedPhotonProducer::buildCollections ( edm::EventSetup const & es,
 		  mypair.push_back(*iGoodGenTran); 
 		  
 		  try{
-		    
-		    TransientVertex trVtx=theVertexFinder_->run(mypair); 
-		    theConversionVertex= trVtx;
+		    theVertexFinder_->run(iPair->first, theConversionVertex ); 
 		    
 		  }
 		  catch ( cms::Exception& e ) {
