@@ -117,6 +117,7 @@ ConvertedPhotonProducer::ConvertedPhotonProducer(const edm::ParameterSet& config
 
 ConvertedPhotonProducer::~ConvertedPhotonProducer() {
   delete theTrackPairFinder_;
+  delete theLikelihoodCalc_;
   delete theVertexFinder_;
 }
 
@@ -141,7 +142,6 @@ void  ConvertedPhotonProducer::beginRun (edm::Run& r, edm::EventSetup const & th
 
 void  ConvertedPhotonProducer::endRun (edm::Run& r, edm::EventSetup const & theEventSetup) {
   delete theEcalImpactPositionFinder_; 
-  delete theLikelihoodCalc_;
 }
 
 
