@@ -13,7 +13,7 @@
 //
 // Original Author:  Hongliang Liu
 //         Created:  Thu Mar 13 17:40:48 CDT 2008
-// $Id: TrackerOnlyConversionProducer.cc,v 1.38 2010/10/26 15:40:13 elmer Exp $
+// $Id: TrackerOnlyConversionProducer.cc,v 1.40 2010/11/22 02:02:08 bendavid Exp $
 //
 //
 
@@ -78,7 +78,7 @@ TrackerOnlyConversionProducer::TrackerOnlyConversionProducer(const edm::Paramete
     algoName_ = iConfig.getParameter<std::string>( "AlgorithmName" );
 
     src_ = iConfig.getParameter<edm::InputTag>("src");
-
+    maxNumOfTrackInPU_ = iConfig.getParameter<int>("maxNumOfTrackInPU");
     allowTrackBC_ = iConfig.getParameter<bool>("AllowTrackBC");
     allowD0_ = iConfig.getParameter<bool>("AllowD0");
     allowDeltaPhi_ = iConfig.getParameter<bool>("AllowDeltaPhi");
@@ -205,7 +205,7 @@ TrackerOnlyConversionProducer::produce(edm::Event& iEvent, const edm::EventSetup
     if (!vertexCollection.empty())
 	the_pvtx = *(vertexCollection.begin());
 
-    if (trackCollectionHandle->size()>200){
+    if (trackCollectionHandle->size()> maxNumOfTrackInPU_ ){
 	iEvent.put( outputConvPhotonCollection_p, ConvertedPhotonCollection_);
 	return;
     }
