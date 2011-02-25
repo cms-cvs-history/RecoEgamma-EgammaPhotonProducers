@@ -4,8 +4,8 @@
  **
  **
  **  $Id:
- **  $Date: 2010/09/27 18:30:53 $
- **  $Revision: 1.21 $
+ **  $Date: 2011/01/26 19:59:07 $
+ **  $Revision: 1.22.2.1 $
  **  \authors H. Liu, UC of Riverside US, N. Marinelli Univ of Notre Dame
  **
  ***/
@@ -146,7 +146,9 @@ class TrackerOnlyConversionProducer : public edm::EDProducer {
 
       const TransientTrackBuilder *thettbuilder_;
 
+
       double halfWayEta_, halfWayPhi_;//halfway open angle to search in basic clusters
+      unsigned int  maxNumOfTrackInPU_;
 
       double energyBC_;//1.5GeV for track BC selection
       double energyTotalBC_;//5GeV for track pair BC selection
