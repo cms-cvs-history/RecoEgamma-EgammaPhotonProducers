@@ -2,7 +2,7 @@ import FWCore.ParameterSet.Config as cms
 
 #
 #  configuration for producer of converted photons
-#  $Id: conversionTrackCandidates_cfi.py,v 1.33 2012/02/23 08:49:58 nancy Exp $
+#  $Id: conversionTrackCandidates_cfi.py,v 1.28.2.2 2012/04/17 09:46:21 brownson Exp $
 #
 # stripCPE
 from RecoLocalTracker.SiStripRecHitConverter.StripCPEfromTrackAngle_cfi import *
@@ -79,9 +79,9 @@ conversionTrackCandidates = cms.EDProducer("ConversionTrackCandidateProducer",
         propagatorOppositeTISE = cms.string('oppositeToMomElePropagator'),
         numberMeasurementsForFit = cms.int32(4)
     ),
-    allowSharedFirstHit = cms.bool(True),
-    ValidHitBonus = cms.double(5.0),
-    MissingHitPenalty = cms.double(20.0)
+    allowSharedFirstHit = cms.bool(False),
+    ValidHitBonus = cms.double(999.0),
+    MissingHitPenalty = cms.double(0.0)
 
  )
 
