@@ -320,6 +320,12 @@ TrackingRecHitRefProd rHits = evt.getRefBeforePut<TrackingRecHitCollection>();
     reco::TrackExtraRef teref= reco::TrackExtraRef ( rTrackExtras, idx ++ );
     reco::Track & track = selTracks->back();
     track.setExtra( teref );
+    
+    // set the inner and outer position/momentum of the track (AA)
+    track.setInnerPosition(inpos);
+    track.setInnerMomentum(inmom);
+    track.setOuterPosition(outpos);
+    track.setOuterMomentum(outmom);
 
     //======= I want to set the second hitPattern here =============
     if (theSchool.isValid())
@@ -329,8 +335,12 @@ TrackingRecHitRefProd rHits = evt.getRefBeforePut<TrackingRecHitCollection>();
       }
     //==============================================================
 
-
-    selTrackExtras->push_back( reco::TrackExtra (outpos, outmom, true, inpos, inmom, true,
+// Use reduced extra format (AA)
+//    selTrackExtras->push_back( reco::TrackExtra (outpos, outmom, true, inpos, inmom, true,
+//                                                 outertsos.curvilinearError(), outerId,
+//                                                 innertsos.curvilinearError(), innerId,
+//                                                 seedDir,theTraj->seedRef()));
+    selTrackExtras->push_back( reco::TrackExtra (true, true,
                                                  outertsos.curvilinearError(), outerId,
                                                  innertsos.curvilinearError(), innerId,
                                                  seedDir,theTraj->seedRef()));
